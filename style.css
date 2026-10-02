@@ -131,6 +131,7 @@ h2 {
   margin-bottom: 45px;
 }
 
+
 .introduction {
   color: var(--gris);
   font-size: 1.1rem;
@@ -213,7 +214,76 @@ footer {
   color: var(--gris);
   font-size: 0.8rem;
   padding: 25px var(--espace);
+  background: #ffccf2;
 }
+
+/* Réseaux Socieaux */
+.social
+{
+   text-align: center !important;
+box-sizing: border-box;
+ padding-top: 1rem !important;
+    display: block;
+    unicode-bidi: isolate;
+}
+.social a {
+        color: #FCEDFA;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+/*font-size: 18px;
+    display: inline-block;*/
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Boutton qui remonte en haut de page */
+.bx {
+    font-family: boxicons !important;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    display: inline-block;
+    text-transform: none;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+}
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: #E5387B;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+
+     display: flex !important;
+      justify-content: center !important;
+          align-items: center !important;
+}
+
+.back-to-top i {
+    font-size: 28px;
+    color: #FCEDFA;
+    line-height: 0;
+}
+
 
 /* Version mobile */
 
