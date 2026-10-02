@@ -243,7 +243,7 @@ box-sizing: border-box;
 
 /* Boutton qui remonte en haut de page */
 
-#bouton-haut {
+.bouton-haut {
   background: #00033d;
   border: none;
   border-radius: 50%;
@@ -257,13 +257,14 @@ box-sizing: border-box;
   right: 20px;
   width: 45px;
   z-index: 10;
+  display: inline-block;
 }
 
-#bouton-haut.visible {
+.bouton-haut.visible {
   display: block;
 }
 
-#bouton-haut:hover {
+.bouton-haut:hover {
   background: #d9c4ff;
 }
 
