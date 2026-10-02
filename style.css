@@ -39,6 +39,10 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-decoration: none;
+      padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    white-space: nowrap;
 }
 
 .navigation {
