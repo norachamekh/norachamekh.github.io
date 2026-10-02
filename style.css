@@ -256,26 +256,52 @@ box-sizing: border-box;
     -moz-osx-font-smoothing: grayscale;
 }
 
-.back-to-top.active {
+.bouton-haut.visible {
     visibility: visible;
     opacity: 1;
+   pointer-events: auto;
+  transform: translateY(0);
 }
-.back-to-top {
-    position: fixed;
+.bouton-haut {
     visibility: hidden;
-    opacity: 0;
     right: 15px;
-    bottom: 15px;
-    z-index: 996;
-    background: #d9c4ff;
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    transition: all 0.4s;
+/*    bottom: 15px; 
+  width: 40px;   
+  z-index: 996;
+ border-radius: 4px;
+  
+  */
 
+    background: #d9c4ff;
+ 
+    height: 40px;
+    transition: all 0.4s;
      display: flex !important;
       justify-content: center !important;
           align-items: center !important;
+
+  align-items: center;
+  background: var(--texte);
+  border: 0;
+  border-radius: 50%;
+  bottom: 25px;
+  color: var(--blanc);
+  cursor: pointer;
+  display: flex;
+  font-size: 1.4rem;
+  height: 48px;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 25px;
+  transform: translateY(15px);
+  transition:
+     opacity 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+  width: 48px;
+  z-index: 50;
 }
 
 .back-to-top i {
@@ -283,7 +309,15 @@ box-sizing: border-box;
     color: #00033d;
     line-height: 0;
 }
+.bouton-haut:hover {
+  background: var(--accent);
+  transform: translateY(-4px);
+}
 
+.bouton-haut:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
 
 /* Version mobile */
 
