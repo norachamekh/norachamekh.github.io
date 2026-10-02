@@ -257,7 +257,7 @@ box-sizing: border-box;
 }
 
 /* Bouton retour en haut */
-
+/*
 .bouton-haut {
   align-items: center;
   background: var(--texte);
@@ -297,7 +297,31 @@ box-sizing: border-box;
 .bouton-haut:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 4px;
+}*/
+#bouton-haut {
+  background: #1d1d1b;
+  border: none;
+  border-radius: 50%;
+  bottom: 20px;
+  color: white;
+  cursor: pointer;
+  display: none;
+  font-size: 22px;
+  height: 45px;
+  position: fixed;
+  right: 20px;
+  width: 45px;
+  z-index: 10;
 }
+
+#bouton-haut.visible {
+  display: block;
+}
+
+#bouton-haut:hover {
+  background: #d85c3e;
+}
+
 
 /* Version mobile */
 
