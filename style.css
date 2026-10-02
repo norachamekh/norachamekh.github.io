@@ -256,30 +256,8 @@ box-sizing: border-box;
     -moz-osx-font-smoothing: grayscale;
 }
 
-.bouton-haut.visible {
-    visibility: visible;
-    opacity: 1;
-   pointer-events: auto;
-  transform: translateY(0);
-}
+
 .bouton-haut {
-    visibility: hidden;
-    right: 15px;
-/*    bottom: 15px; 
-  width: 40px;   
-  z-index: 996;
- border-radius: 4px;
-  
-  */
-
-    background: #d9c4ff;
- 
-    height: 40px;
-    transition: all 0.4s;
-     display: flex !important;
-      justify-content: center !important;
-          align-items: center !important;
-
   align-items: center;
   background: var(--texte);
   border: 0;
@@ -303,12 +281,13 @@ box-sizing: border-box;
   width: 48px;
   z-index: 50;
 }
-
-.back-to-top i {
-    font-size: 28px;
-    color: #00033d;
-    line-height: 0;
+.bouton-haut.visible {
+    visibility: visible;
+    opacity: 1;
+   pointer-events: auto;
+  transform: translateY(0);
 }
+
 .bouton-haut:hover {
   background: var(--accent);
   transform: translateY(-4px);
@@ -384,5 +363,11 @@ box-sizing: border-box;
   .section {
     padding-bottom: 70px;
     padding-top: 70px;
+  }
+    .bouton-haut {
+    bottom: 18px;
+    height: 44px;
+    right: 18px;
+    width: 44px;
   }
 }
