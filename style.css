@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap');
+
+:root {
+  --fond: #f4f1ec;
+  --texte: #1d1d1b;
+  --accent: #d85c3e;
+  --gris: #77736d;
+  --blanc: #ffffff;
+  --espace: 7vw;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--fond);
+  color: var(--texte);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.5;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 28px var(--espace);
+}
+
+.logo {
+  color: var(--texte);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.navigation {
+  display: flex;
+  gap: 28px;
+}
+
+.navigation a {
+  color: var(--texte);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  min-height: 80vh;
+  padding: 15vh var(--espace);
+}
+
+.sur-titre {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 8rem);
+  max-width: 950px;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  margin-bottom: 45px;
+}
+
+.introduction {
+  color: var(--gris);
+  font-size: 1.1rem;
+  margin: 35px 0;
+  max-width: 530px;
+}
+
+.bouton {
+  background: var(--texte);
+  color: var(--blanc);
+  display: inline-block;
+  font-size: 0.9rem;
+  padding: 15px 22px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.bouton:hover {
+  background: var(--accent);
+  transform: translateY(-3px);
+}
+
+.section {
+  padding: 100px var(--espace);
+}
+
+.projets {
+  display: grid;
+  gap: 35px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.projet img {
+  aspect-ratio: 4 / 5;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.projet h3 {
+  font-size: 1.1rem;
+  margin-top: 18px;
+}
+
+.projet p {
+  color: var(--gris);
+  font-size: 0.9rem;
+}
+
+.apropos {
+  background: var(--texte);
+  color: var(--blanc);
+}
+
+.apropos p:last-child {
+  font-size: 1.25rem;
+  max-width: 650px;
+}
+
+.contact {
+  min-height: 55vh;
+}
+
+footer {
+  border-top: 1px solid #d7d1c8;
+  color: var(--gris);
+  font-size: 0.8rem;
+  padding: 25px var(--espace);
+}
+
+@media (max-width: 700px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .navigation {
+    gap: 15px;
+  }
+
+  .hero {
+    min-height: 70vh;
+    padding-top: 10vh;
+  }
+
+  .projets {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding-bottom: 70px;
+    padding-top: 70px;
+  }
+}
