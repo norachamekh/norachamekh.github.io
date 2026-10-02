@@ -74,7 +74,7 @@ if (document.readyState === 'loading') {
   );
 } else {
   initialiserMenu();
-
+}
 
 
 
@@ -111,4 +111,4 @@ if (document.readyState === 'loading') {
 } else {
   initialiserBoutonHaut();
 }
-}
+
