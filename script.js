@@ -3,13 +3,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const navigation = document.getElementById('navigation-principale');
 
   if (!boutonMenu || !navigation) {
+    console.error('Le bouton burger ou la navigation est introuvable.');
     return;
   }
 
   boutonMenu.addEventListener('click', function () {
-    const menuEstOuvert = boutonMenu.classList.toggle('menu-ouvert');
+    const menuEstOuvert = navigation.classList.toggle('menu-ouvert');
 
-    navigation.classList.toggle('menu-ouvert', menuEstOuvert);
+    boutonMenu.classList.toggle('menu-ouvert', menuEstOuvert);
 
     boutonMenu.setAttribute(
       'aria-expanded',
@@ -22,12 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
     );
   });
 
-  const liens = navigation.querySelectorAll('a');
-
-  liens.forEach(function (lien) {
+  navigation.querySelectorAll('a').forEach(function (lien) {
     lien.addEventListener('click', function () {
-      boutonMenu.classList.remove('menu-ouvert');
       navigation.classList.remove('menu-ouvert');
+      boutonMenu.classList.remove('menu-ouvert');
 
       boutonMenu.setAttribute('aria-expanded', 'false');
       boutonMenu.setAttribute('aria-label', 'Ouvrir le menu');
