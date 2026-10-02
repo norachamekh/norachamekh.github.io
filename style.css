@@ -45,8 +45,6 @@ body {
   width: 36px;
   z-index: 20;
 }
- /* position: relative; */
-
 
 .menu-burger span {
   background: var(--texte);
@@ -63,10 +61,6 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-decoration: none;
-  /*     padding-top: .3125rem;
-    padding-bottom: .3125rem;
-    margin-right: 1rem;
-    white-space: nowrap; */
 }
 
 /* Navigation sur ordinateur */
@@ -190,10 +184,6 @@ footer {
 /* Version mobile */
 @media (max-width: 700px) {
   .header {
-    /* align-items: flex-start;
-    flex-direction: column;
-    gap: 20px;
-    position: relative; */ 
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
