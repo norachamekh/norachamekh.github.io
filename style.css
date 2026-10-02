@@ -250,7 +250,7 @@ box-sizing: border-box;
   bottom: 20px;
   color: #ffccf2;
   cursor: pointer;
-  display: none;
+/*  display: none;*/
   font-size: 22px;
   height: 45px;
   position: fixed;
