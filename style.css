@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap');
 
 :root {
-  --fond: #f4f1ec;
+  --fond: #e5fffd;
   --texte: #00033d;
   --accent: #836ce6;
   --gris: #77736d;
@@ -36,9 +36,9 @@ body {
   padding: 28px var(--espace);
   position: relative;
   width: 100%;
-  background: #00033dae;
+  background: #ffccf2;
   position: fixed;
-  z-index: 1030;
+  /* z-index: 1030; */
 }
 
 .logo {
@@ -223,7 +223,7 @@ footer {
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    padding: 22px var(--espace);
+    padding: 12px var(--espace);
   }
 
   .menu-burger {
