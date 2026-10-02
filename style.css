@@ -256,6 +256,7 @@ box-sizing: border-box;
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Bouton retour en haut */
 
 .bouton-haut {
   align-items: center;
@@ -275,16 +276,16 @@ box-sizing: border-box;
   right: 25px;
   transform: translateY(15px);
   transition:
-     opacity 0.3s ease,
+    opacity 0.3s ease,
     transform 0.3s ease,
     background 0.3s ease;
   width: 48px;
   z-index: 50;
 }
+
 .bouton-haut.visible {
-    visibility: visible;
-    opacity: 1;
-   pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
   transform: translateY(0);
 }
 
@@ -364,7 +365,7 @@ box-sizing: border-box;
     padding-bottom: 70px;
     padding-top: 70px;
   }
-    .bouton-haut {
+  .bouton-haut {
     bottom: 18px;
     height: 44px;
     right: 18px;
