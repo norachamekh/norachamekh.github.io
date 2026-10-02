@@ -1,25 +1,20 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const boutonMenu = document.getElementById('menu-burger');
-  const navigation = document.getElementById('navigation-principale');
+function initialiserMenu() {
+  const boutonMenu = document.querySelector('.menu-burger');
+  const navigation = document.querySelector('.navigation');
 
   if (!boutonMenu || !navigation) {
-    console.error('Le bouton burger ou la navigation est introuvable.');
+    console.error('Menu introuvable dans cette page.');
     return;
   }
 
   boutonMenu.addEventListener('click', function () {
-    const menuEstOuvert = navigation.classList.toggle('menu-ouvert');
+    const menuOuvert = navigation.classList.toggle('menu-ouvert');
 
-    boutonMenu.classList.toggle('menu-ouvert', menuEstOuvert);
-
-    boutonMenu.setAttribute(
-      'aria-expanded',
-      menuEstOuvert ? 'true' : 'false'
-    );
-
+    boutonMenu.classList.toggle('menu-ouvert', menuOuvert);
+    boutonMenu.setAttribute('aria-expanded', menuOuvert);
     boutonMenu.setAttribute(
       'aria-label',
-      menuEstOuvert ? 'Fermer le menu' : 'Ouvrir le menu'
+      menuOuvert ? 'Fermer le menu' : 'Ouvrir le menu'
     );
   });
 
@@ -27,9 +22,14 @@ document.addEventListener('DOMContentLoaded', function () {
     lien.addEventListener('click', function () {
       navigation.classList.remove('menu-ouvert');
       boutonMenu.classList.remove('menu-ouvert');
-
       boutonMenu.setAttribute('aria-expanded', 'false');
       boutonMenu.setAttribute('aria-label', 'Ouvrir le menu');
     });
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initialiserMenu);
+} else {
+  initialiserMenu();
+}
