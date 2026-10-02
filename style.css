@@ -158,11 +158,25 @@ h2 {
   
 }
 
-.burgueur {
-  padding: .1rem;
-  display: block !important;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
+.menu-burger {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: none;
+  height: 32px;
+  padding: 4px;
+  position: relative;
+  width: 36px;
+  z-index: 20;
+}
+
+.menu-burger span {
+  background: var(--texte);
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  transition: 0.3s ease;
+  width: 28px;
 }
 
 .contact {
@@ -181,12 +195,47 @@ footer {
     align-items: flex-start;
     flex-direction: column;
     gap: 20px;
+    position: relative;
+  }
+  
+.menu-burger {
+    display: block;
   }
 
   .navigation {
+    background: var(--fond);
+    display: none;
+    flex-direction: column;
     gap: 15px;
+    left: 0;
+    padding: 25px var(--espace);
+    position: absolute;
+    right: 0;
+    top: 80px;
+    z-index: 10;
   }
 
+ .navigation.menu-ouvert {
+    display: flex;
+  }
+
+  .navigation a {
+    border-bottom: 1px solid #d7d1c8;
+    padding: 16px 0;
+  }
+
+  .menu-burger.menu-ouvert span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-burger.menu-ouvert span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-burger.menu-ouvert span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  
   .hero {
     min-height: 70vh;
     padding-top: 10vh;
