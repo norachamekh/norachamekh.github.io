@@ -1,25 +1,36 @@
-const boutonMenu = document.querySelector('#menu-burger');
-const navigation = document.querySelector('#navigation-principale');
-const liensNavigation = document.querySelectorAll('#navigation-principale a');
+document.addEventListener('DOMContentLoaded', function () {
+  const boutonMenu = document.getElementById('menu-burger');
+  const navigation = document.getElementById('navigation-principale');
 
-boutonMenu.addEventListener('click', () => {
-  const menuEstOuvert = boutonMenu.classList.toggle('menu-ouvert');
+  if (!boutonMenu || !navigation) {
+    return;
+  }
 
-  navigation.classList.toggle('menu-ouvert', menuEstOuvert);
+  boutonMenu.addEventListener('click', function () {
+    const menuEstOuvert = boutonMenu.classList.toggle('menu-ouvert');
 
-  boutonMenu.setAttribute('aria-expanded', menuEstOuvert);
-  boutonMenu.setAttribute(
-    'aria-label',
-    menuEstOuvert ? 'Fermer le menu' : 'Ouvrir le menu'
-  );
-});
+    navigation.classList.toggle('menu-ouvert', menuEstOuvert);
 
-liensNavigation.forEach((lien) => {
-  lien.addEventListener('click', () => {
-    boutonMenu.classList.remove('menu-ouvert');
-    navigation.classList.remove('menu-ouvert');
+    boutonMenu.setAttribute(
+      'aria-expanded',
+      menuEstOuvert ? 'true' : 'false'
+    );
 
-    boutonMenu.setAttribute('aria-expanded', 'false');
-    boutonMenu.setAttribute('aria-label', 'Ouvrir le menu');
+    boutonMenu.setAttribute(
+      'aria-label',
+      menuEstOuvert ? 'Fermer le menu' : 'Ouvrir le menu'
+    );
+  });
+
+  const liens = navigation.querySelectorAll('a');
+
+  liens.forEach(function (lien) {
+    lien.addEventListener('click', function () {
+      boutonMenu.classList.remove('menu-ouvert');
+      navigation.classList.remove('menu-ouvert');
+
+      boutonMenu.setAttribute('aria-expanded', 'false');
+      boutonMenu.setAttribute('aria-label', 'Ouvrir le menu');
+    });
   });
 });
