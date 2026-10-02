@@ -36,6 +36,9 @@ body {
   padding: 28px var(--espace);
   position: relative;
   width: 100%;
+  background: #00033dae;
+  position: fixed;
+  z-index: 1030;
 }
 
 .logo {
