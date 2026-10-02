@@ -202,6 +202,10 @@ h2 {
   min-height: 55vh;
 }
 
+.center {
+    text-align: center !important;
+}
+
 /* Pied de page */
 
 footer {
