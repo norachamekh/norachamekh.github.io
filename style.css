@@ -6,7 +6,7 @@
   --accent: #d85c3e;
   --gris: #77736d;
   --blanc: #ffffff;
-  --espace: 7vw;
+  --espace: 30px;
 }
 
 * {
@@ -25,12 +25,17 @@ body {
   font-family: 'DM Sans', sans-serif;
   line-height: 1.5;
 }
+
+main { 
+  padding-left: 3vw;
+}
+
 /* En-tête général */
 .header {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 28px var(--espace);
+  padding: 17px var(--espace);
   position: relative;
 }
 
@@ -81,7 +86,7 @@ body {
 
 .hero {
   min-height: 80vh;
-  padding: 15vh var(--espace);
+  padding: 7vh var(--espace);
 }
 
 .sur-titre {
