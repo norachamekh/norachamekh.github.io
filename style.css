@@ -267,7 +267,7 @@ box-sizing: border-box;
     right: 15px;
     bottom: 15px;
     z-index: 996;
-    background: #E5387B;
+    background: #d9c4ff;
     width: 40px;
     height: 40px;
     border-radius: 4px;
@@ -280,7 +280,7 @@ box-sizing: border-box;
 
 .back-to-top i {
     font-size: 28px;
-    color: #FCEDFA;
+    color: #00033d;
     line-height: 0;
 }
 
