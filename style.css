@@ -139,7 +139,6 @@ h2 {
 
 .section {
   padding: 100px var(--espace);
-  padding-top: inherit;
 }
 
 .projets {
