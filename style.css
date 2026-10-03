@@ -276,6 +276,8 @@ box-sizing: border-box;
   color: #00033d;
     background: var(--accent);
   transform: translateY(-3px);
+      -webkit-text-stroke-width: thick;
+  text-box-trim: trim-start;
 }
 
 
