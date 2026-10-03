@@ -33,7 +33,7 @@ body {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 28px var(--espace);
+  padding: 10px 28px 10px 28px;
   position: relative;
   width: 100%;
   background: #ffccf2;
