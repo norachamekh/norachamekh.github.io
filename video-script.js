@@ -1,6 +1,4 @@
 function initialiserVideo() {
-
-  console.log('initialiserVideo est lancée');
   
   const video = document.querySelector('#video-ford');
   const boutonPlay = document.querySelector('#bouton-play');
