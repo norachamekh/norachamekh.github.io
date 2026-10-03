@@ -8,21 +8,46 @@ function initialiserVideo() {
     console.warn('Vidéo, bouton play ou wrapper introuvable.');
     return;
   }
+
+    function remettreBoutonAuCentre() {
+    boutonPlay.style.left = '50%';
+    boutonPlay.style.top = '50%';
+    boutonPlay.style.transform = 'translate(-50%, -50%)';
+  }
+  
 /* Lancer ou mettre en pause la vidéo */
   boutonPlay.addEventListener('click', function (e) {
     e.stopPropagation();// éviter de déclencher le clic du wrapper
 
-    if (video.paused) {
-      video.play();
-      wrapper.classList.add('lecture-en-cours');
-    } else {
+    /* Si la vidéo joue déjà, on la met en pause */
+    if (!video.paused) {
       video.pause();
-      wrapper.classList.remove('lecture-en-cours');
+      return;
+    }
+    /* On tente de lancer la vidéo */
+    const lecture = video.play();
+
+    /* play() retourne une Promise : on attend qu'elle réussisse */
+    if (lecture !== undefined) {
+      lecture
+        .then(function () {
+          wrapper.classList.add('lecture-en-cours');
+          remettreBoutonAuCentre();
+        })
+        .catch(function (erreur) {
+          console.error('La vidéo ne peut pas démarrer :', erreur);
+          wrapper.classList.remove('lecture-en-cours');
+        });
     }
   });
- 
+
+  /* Le bouton suit la souris uniquement quand la vidéo est en pause */
   /* Faire suivre le bouton play à la souris */
   wrapper.addEventListener('mousemove', function (e) {
+
+        if (!video.paused) {
+      return;
+    }
     const rect = wrapper.getBoundingClientRect();
 
     const x = e.clientX - rect.left;
@@ -33,7 +58,30 @@ function initialiserVideo() {
     boutonPlay.style.transform = 'translate(-50%, -50%)';
   });
 
-  /* Replacer le bouton au centre à la sortie de la vidéo */
+
+/* Le bouton se recentre quand la souris quitte la vidéo */
+  wrapper.addEventListener('mouseleave', function () {
+    if (video.paused) {
+      remettreBoutonAuCentre();
+    }
+  });
+
+  /* Lorsque la vidéo est mise en pause, on réaffiche le bouton */
+  video.addEventListener('pause', function () {
+    wrapper.classList.remove('lecture-en-cours');
+    remettreBoutonAuCentre();
+  });
+
+  /* Lorsque la vidéo est terminée, on revient au début */
+  video.addEventListener('ended', function () {
+    video.currentTime = 0;
+    wrapper.classList.remove('lecture-en-cours');
+    remettreBoutonAuCentre();
+  });
+}
+
+  
+  /* Replacer le bouton au centre à la sortie de la vidéo 
   wrapper.addEventListener('mouseleave', function () {
     boutonPlay.style.left = '50%';
     boutonPlay.style.top = '50%';
@@ -44,7 +92,7 @@ function initialiserVideo() {
 document.addEventListener('DOMContentLoaded', function () {
   initialiserVideo();
 });
-
+*/
 
 
 /*
