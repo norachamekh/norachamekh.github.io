@@ -159,7 +159,7 @@ h2 {
 
 .section {
   padding: 100px var(--espace);
-  padding-left: 11vw;
+ /* padding-left: 11vw; */
 }
 
 .projets {
