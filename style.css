@@ -259,6 +259,7 @@ box-sizing: border-box;
   z-index: 10;
   display: inline-block;
       transition: background 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
 }
 
 .bouton-haut.visible {
@@ -267,6 +268,7 @@ box-sizing: border-box;
 
 .bouton-haut:hover {
   background: #d9c4ff;
+  color: #00033d;
 }
 
 
