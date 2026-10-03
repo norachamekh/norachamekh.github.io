@@ -331,6 +331,7 @@ box-sizing: border-box;
   background: #000;
   overflow: hidden;
   cursor: pointer;
+    /* Surtout pas de pointer-events: none ici */
 }
 
 /* Vidéo / image poster */
@@ -341,6 +342,7 @@ box-sizing: border-box;
   object-fit: cover;
   transition: transform 0.8s ease;
   transform: scale(1);
+    /* Pas de pointer-events: none */
 }
 
 /* Petit zoom au survol du conteneur */
@@ -363,7 +365,7 @@ box-sizing: border-box;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: transform 0.1s ease-out, background 0.3s ease;
   width: 80px;
     pointer-events: auto; /* important */
   z-index: 5;
@@ -371,7 +373,7 @@ box-sizing: border-box;
 
 .bouton-play:hover {
   background: #fff;
-  transform: translate(-50%, -50%) scale(1.08);
+ /* transform: translate(-50%, -50%) scale(1.08);*/
 }
 
 .icone-play {
@@ -406,7 +408,7 @@ box-sizing: border-box;
   content: '';
   inset: 0;
   opacity: 0;
-  pointer-events: none;
+  pointer-events: none; /* important */
   position: absolute;
   transition: opacity 0.4s ease;
 }
