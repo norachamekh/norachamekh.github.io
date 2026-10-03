@@ -1,181 +1,124 @@
-function initialiserMenu() {
+document.addEventListener('DOMContentLoaded', function () {
+
+  // --- MENU BURGER ---
   const boutonMenu = document.querySelector('.menu-burger');
   const navigation = document.querySelector('.navigation');
 
   if (boutonMenu && navigation) {
     boutonMenu.addEventListener('click', function () {
-      const menuEstOuvert =
-        navigation.classList.toggle('menu-ouvert');
-
-      boutonMenu.classList.toggle(
-        'menu-ouvert',
-        menuEstOuvert
-      );
-
-      boutonMenu.setAttribute(
-        'aria-expanded',
-        menuEstOuvert ? 'true' : 'false'
-      );
-
+      const menuOuvert = navigation.classList.toggle('menu-ouvert');
+      boutonMenu.classList.toggle('menu-ouvert', menuOuvert);
+      boutonMenu.setAttribute('aria-expanded', menuOuvert ? 'true' : 'false');
       boutonMenu.setAttribute(
         'aria-label',
-        menuEstOuvert ? 'Fermer le menu' : 'Ouvrir le menu'
+        menuOuvert ? 'Fermer le menu' : 'Ouvrir le menu'
       );
     });
 
-    const liensNavigation =
-      navigation.querySelectorAll('a');
-
-    liensNavigation.forEach(function (lien) {
+    navigation.querySelectorAll('a').forEach(function (lien) {
       lien.addEventListener('click', function () {
         navigation.classList.remove('menu-ouvert');
         boutonMenu.classList.remove('menu-ouvert');
-
-        boutonMenu.setAttribute(
-          'aria-expanded',
-          'false'
-        );
-
-        boutonMenu.setAttribute(
-          'aria-label',
-          'Ouvrir le menu'
-        );
+        boutonMenu.setAttribute('aria-expanded', 'false');
+        boutonMenu.setAttribute('aria-label', 'Ouvrir le menu');
       });
     });
   }
-}
 
-function initialiserBoutonHaut() {
+  // --- BOUTON RETOUR EN HAUT ---
   const boutonHaut = document.querySelector('#bouton-haut');
 
-  if (!boutonHaut) {
-    return;
+  if (boutonHaut) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        boutonHaut.classList.add('visible');
+      } else {
+        boutonHaut.classList.remove('visible');
+      }
+    });
+
+    boutonHaut.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 300) {
-      boutonHaut.classList.add('visible');
-    } else {
-      boutonHaut.classList.remove('visible');
-    }
-  });
+  // --- APPARITION DES ÉLÉMENTS (.reveal) ---
+  const elementsReveal = document.querySelectorAll('.reveal');
 
-  boutonHaut.addEventListener('click', function () {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  if ('IntersectionObserver' in window && elementsReveal.length > 0) {
+    const observerReveal = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observerReveal.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
     });
-  });
-}
 
-function initialiserReveal() {
-  const elements = document.querySelectorAll('.reveal');
-
-  if (!('IntersectionObserver' in window)) {
-    elements.forEach(function (el) {
+    elementsReveal.forEach(function (el) {
+      observerReveal.observe(el);
+    });
+  } else {
+    // Fallback si IntersectionObserver n'existe pas
+    elementsReveal.forEach(function (el) {
       el.classList.add('visible');
     });
-    return;
   }
 
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+  // --- APPARITION DES IMAGES (.img-scroll) ---
+  const imagesScroll = document.querySelectorAll('.img-scroll');
+
+  if ('IntersectionObserver' in window && imagesScroll.length > 0) {
+    const observerImages = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('apparue');
+          observerImages.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
     });
-  }, {
-    threshold: 0.15
-  });
 
-  elements.forEach(function (el) {
-    observer.observe(el);
-  });
-}
-
-function initialiserImagesScroll() {
-  const images = document.querySelectorAll('.img-scroll');
-
-  if (!('IntersectionObserver' in window)) {
-    images.forEach(function (img) {
+    imagesScroll.forEach(function (img) {
+      observerImages.observe(img);
+    });
+  } else {
+    imagesScroll.forEach(function (img) {
       img.classList.add('apparue');
     });
-    return;
   }
 
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('apparue');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.15
-  });
-
-  images.forEach(function (img) {
-    observer.observe(img);
-  });
-}
-
-function initialiserVideo() {
+  // --- VIDÉO AVEC BOUTON PLAY ---
   const video = document.querySelector('#video-ford');
   const boutonPlay = document.querySelector('#bouton-play');
   const wrapper = document.querySelector('.video-wrapper');
 
-  if (!video || !boutonPlay) {
-    return;
-  }
-
-  boutonPlay.addEventListener('click', function () {
-    if (video.paused) {
-      video.play();
-      if (wrapper) {
-        wrapper.classList.add('lecture-en-cours');
+  if (video && boutonPlay) {
+    boutonPlay.addEventListener('click', function () {
+      if (video.paused) {
+        video.play();
+        if (wrapper) wrapper.classList.add('lecture-en-cours');
+      } else {
+        video.pause();
+        if (wrapper) wrapper.classList.remove('lecture-en-cours');
       }
-    } else {
-      video.pause();
-      if (wrapper) {
-        wrapper.classList.remove('lecture-en-cours');
-      }
-    }
-  });
-
-  // Optionnel : pause quand la vidéo n'est plus visible
-  if ('IntersectionObserver' in window) {
-    const observerVideo = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting && !video.paused) {
-          video.pause();
-          if (wrapper) {
-            wrapper.classList.remove('lecture-en-cours');
-          }
-        }
-      });
-    }, {
-      threshold: 0.3
     });
 
-    observerVideo.observe(video);
+    if ('IntersectionObserver' in window) {
+      const observerVideo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting && !video.paused) {
+            video.pause();
+            if (wrapper) wrapper.classList.remove('lecture-en-cours');
+          }
+        });
+      }, { threshold: 0.3 });
+
+      observerVideo.observe(video);
+    }
   }
-}
 
-function initialiserSite() {
-  initialiserMenu();
-  initialiserBoutonHaut();
-  initialiserReveal();
-  initialiserImagesScroll();
-  initialiserVideo();
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener(
-    'DOMContentLoaded',
-    initialiserSite
-  );
-} else {
-  initialiserSite();
-}
-
+});
