@@ -1,30 +1,18 @@
 function initialiserVideo() {
+
+  console.log('initialiserVideo est lancée');
+  
   const video = document.querySelector('#video-ford');
   const boutonPlay = document.querySelector('#bouton-play');
   const wrapper = document.querySelector('.video-wrapper');
 
   if (!video || !boutonPlay || !wrapper) {
-     console.warn('Vidéo, bouton play ou wrapper introuvable.');
+    console.warn('Vidéo, bouton play ou wrapper introuvable.');
     return;
   }
-
 /* Lancer ou mettre en pause la vidéo */
   boutonPlay.addEventListener('click', function (e) {
-    e.stopPropagation(); // éviter de déclencher le clic du wrapper
-    if (video.paused) {
-      video.play();
-      wrapper.classList.add('lecture-en-cours');
-    } else {
-      video.pause();
-      wrapper.classList.remove('lecture-en-cours');
-    }
-  });
-
-
-
-   /* Lancer ou mettre en pause la vidéo */
-  boutonPlay.addEventListener('click', function (e) {
-    e.stopPropagation();
+    e.stopPropagation();// éviter de déclencher le clic du wrapper
 
     if (video.paused) {
       video.play();
@@ -34,7 +22,7 @@ function initialiserVideo() {
       wrapper.classList.remove('lecture-en-cours');
     }
   });
-
+ 
   /* Faire suivre le bouton play à la souris */
   wrapper.addEventListener('mousemove', function (e) {
     const rect = wrapper.getBoundingClientRect();
@@ -54,6 +42,12 @@ function initialiserVideo() {
     boutonPlay.style.transform = 'translate(-50%, -50%)';
   });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  initialiserVideo();
+});
+
+
 
 /*
   // +Pause quand la vidéo n'est plus visible
