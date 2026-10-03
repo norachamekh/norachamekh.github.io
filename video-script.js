@@ -1,4 +1,86 @@
 function initialiserVideo() {
+  const video = document.querySelector('#video-ford');
+  const boutonPlay = document.querySelector('#bouton-play');
+  const wrapper = document.querySelector('.video-wrapper');
+
+  if (!video || !boutonPlay || !wrapper) {
+    console.warn('Vidéo, bouton play ou wrapper introuvable.');
+    return;
+  }
+
+  function remettreBoutonAuCentre() {
+    boutonPlay.style.left = '50%';
+    boutonPlay.style.top = '50%';
+    boutonPlay.style.transform = 'translate(-50%, -50%)';
+  }
+
+  /* Le bouton play suit la souris seulement avant la lecture */
+  wrapper.addEventListener('mousemove', function (e) {
+    if (!video.paused) {
+      return;
+    }
+
+    const rect = wrapper.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    boutonPlay.style.left = `${x}px`;
+    boutonPlay.style.top = `${y}px`;
+    boutonPlay.style.transform = 'translate(-50%, -50%)';
+  });
+
+  wrapper.addEventListener('mouseleave', function () {
+    if (video.paused) {
+      remettreBoutonAuCentre();
+    }
+  });
+
+  /* Clic sur le bouton : lancement de la vidéo */
+  boutonPlay.addEventListener('click', function (e) {
+    e.stopPropagation();
+
+    const lecture = video.play();
+
+    if (lecture !== undefined) {
+      lecture
+        .then(function () {
+          /* Affiche timeline, pause, son, plein écran… */
+          video.setAttribute('controls', '');
+
+          /* Cache le gros bouton play */
+          wrapper.classList.add('lecture-en-cours');
+
+          /* Arrête le suivi et replace le bouton avant de le cacher */
+          remettreBoutonAuCentre();
+        })
+        .catch(function (erreur) {
+          console.error('La vidéo ne peut pas démarrer :', erreur);
+        });
+    }
+  });
+
+  /* Si la vidéo est mise en pause avec les contrôles natifs */
+  video.addEventListener('pause', function () {
+    wrapper.classList.remove('lecture-en-cours');
+    remettreBoutonAuCentre();
+  });
+
+  /* À la fin : on enlève les contrôles et on réaffiche le bouton play */
+  video.addEventListener('ended', function () {
+    video.currentTime = 0;
+    video.removeAttribute('controls');
+
+    wrapper.classList.remove('lecture-en-cours');
+    remettreBoutonAuCentre();
+  });
+}
+
+
+
+
+
+/*
+function initialiserVideo() {
   
   const video = document.querySelector('#video-ford');
   const boutonPlay = document.querySelector('#bouton-play');
