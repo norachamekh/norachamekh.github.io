@@ -281,7 +281,11 @@ box-sizing: border-box;
 }
 
 /*Apparitions au scroll (texte et blocs)*/
-
+.reveal,
+.img-scroll {
+  opacity: 1 !important;
+  transform: none !important;
+}
 /* État de départ des éléments à révéler */
 .reveal {
   opacity: 0;
