@@ -22,16 +22,11 @@ function initialiserBoutonHaut() {
   });
 }
 
-function initialiserSite() {
-  initialiserMenu();
-  initialiserBoutonHaut();
-}
-
 if (document.readyState === 'loading') {
   document.addEventListener(
     'DOMContentLoaded',
-    initialiserSite
+    initialiserBoutonHaut
   );
 } else {
-  initialiserSite();
+  initialiserBoutonHaut();
 }
