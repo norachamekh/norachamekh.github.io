@@ -36,19 +36,19 @@
   <main>
 
     <section class="hero">
-      <p class="sur-titre">Portfolio créatif</p>
+      <p class="sur-titre reveal">Portfolio créatif</p>
 
-      <h1>
+      <h1 class="reveal">
         Direction artistique
         <br>
         et communication visuelle.
       </h1>
 
-      <p class="introduction">
+      <p class="introduction reveal">
         Je conçois des identités visuelles et des contenus créatifs.
       </p>
 
-      <a href="projets.html" class="bouton">
+      <a href="projets.html" class="bouton reveal">
         Découvrir mes projets
       </a>
     </section>
@@ -56,72 +56,117 @@
     <section id="projets" class="section">
       <p class="sur-titre">Sélection</p>
 
-      <h2>Projets récents</h2>
+    <!-- Section vidéo avec bouton play -->
 
-      <div class="projets">
+      <section class="section section-video">
+        <p class="sur-titre reveal">Cas pratique</p>
 
-        <article class="projet">
-          <img
-            src="./images/projet-01.jpg"
-            alt="Identité visuelle du projet 01">
-
-          <h3>Projet 01</h3>
-          <p>Identité visuelle — Branding</p>
-        </article>
-
-        <article class="projet">
-          <img
-            src="./images/projet-02.jpg"
-            alt="Campagne de communication du projet 02">
-
-          <h3>Projet 02</h3>
-          <p>Campagne — Direction artistique</p>
-        </article>
-
-        <article class="projet">
-          <img
-            src="./images/projet-03.jpg"
-            alt="Création de contenu du projet 03">
-
-          <h3>Projet 03</h3>
-          <p>Contenu digital — Social media</p>
-        </article>
-
-      </div>
+          <h2 class="reveal">Showreel — 2026</h2>
+              <div class="video-container reveal">
+                  <div class="video-wrapper">
+                    <video
+                      id="video-ford"
+                      class="video"
+                      preload="metadata"
+                      poster="./media/images/video-poster.jpg"
+                      playsinline>
+                      <source src="./media/videos/vidéo.mp4" type="video/mp4">
+                      Votre navigateur ne prend pas en charge la vidéo.
+                    </video>
+                    <button
+                      id="bouton-play"
+                      class="bouton-play"
+                      type="button"
+                      aria-label="Lancer la vidéo">
+                      <span class="icone-play"></span>
+                    </button>
+                  </div>
+          
+         <p class="legende">   Showreel — 2026  </p>
+                </div>
     </section>
 
+        
+       <!-- Section projets avec images qui apparaissent -->
+
+      <section id="projets" class="section">
+        <p class="sur-titre reveal">Sélection</p>
+             <h2>Projets récents</h2>
+              
+                    <div class="projets">
+              
+                      <article class="projet reveal">
+                        <img
+                          class="img-scroll"
+                          src="./media/images/projet-01.jpg"
+                          alt="Identité visuelle du projet 01">
+              
+                        <h3>Projet 01</h3>
+                        <p>Identité visuelle — Branding</p>
+                      </article>
+              
+                      <article class="projet reveal">
+                        <img
+                          class="img-scroll"
+                          src="./media/images/projet-02.jpg"
+                          alt="Campagne de communication du projet 02">
+              
+                        <h3>Projet 02</h3>
+                        <p>Campagne — Direction artistique</p>
+                      </article>
+              
+                      <article class="projet reveal">
+                        <img
+                          class="img-scroll"
+                          src="./media/images/projet-03.jpg"
+                          alt="Création de contenu du projet 03">
+              
+                        <h3>Projet 03</h3>
+                        <p>Contenu digital — Social media</p>
+                      </article>
+              
+                    </div>
+                  </section>
+
+     <!-- Section à propos -->
+
     <section id="apropos" class="section apropos">
-      <p class="sur-titre">À propos</p>
+      <p class="sur-titre reveal">À propos</p>
 
       <h2>Créer du sens par l’image.</h2>
 
-      <p>
+      <p class="reveal">
         Diplômée en direction artistique, je développe des univers visuels
         cohérents, sensibles et adaptés aux objectifs des marques.
       </p>
     </section>
 
-    <section id="contact" class="section contact">
-      <p class="sur-titre">Contact</p>
 
-      <h2>Travaillons ensemble.</h2>
-
-      <a
-        href="mailto:nora.chamekh017@gmail.com"
-        class="bouton">
-        M’écrire un e-mail
-      </a>
-    </section>
-
+       <!-- Section contact -->
+          <section id="contact" class="section contact">
+            <p class="sur-titre reveal">Contact</p>
+      
+            <h2 class="reveal">Travaillons ensemble.</h2>
+      
+            <a
+              href="mailto:nora.chamekh017@gmail.com"
+              class="bouton reveal">
+              M’écrire un e-mail
+            </a>
+          </section>
+      
+ <!-- Bouton retour en haut -->
+          <button
+          id="bouton-haut"
+          class="bouton-haut"
+          type="button"
+          aria-label="Remonter en haut de la page">
+          ↑
+          </button>
+      
   </main>
 
-    <button
-    id="bouton-haut"
-    class="bouton-haut"
-    type="button"
-    aria-label="Remonter en haut de la page">
-    ↑
-  </button>
+    
   
   <footer>
     <p class="center">© 2026 Nora Chamekh — Portfolio</p>
