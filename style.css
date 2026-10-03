@@ -280,6 +280,104 @@ box-sizing: border-box;
   text-box-trim: trim-start;
 }
 
+/*Apparitions au scroll (texte et blocs)*/
+/* État de départ des éléments à révéler */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+/* État visible */
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*Apparition des images*/
+.img-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.img-scroll.apparue {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Vidéo et bouton play */
+.section-video {
+  padding: 100px var(--espace);
+}
+
+.video-container {
+  margin-top: 40px;
+  max-width: 1100px;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  /* ratio 16:9 */
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.bouton-play {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease, background 0.3s ease;
+  width: 80px;
+}
+
+.bouton-play:hover {
+  background: #fff;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.icone-play {
+  border-bottom: 10px solid transparent;
+  border-left: 18px solid #1d1d1b;
+  border-top: 10px solid transparent;
+  display: block;
+  height: 0;
+  margin-left: 4px;
+  width: 0;
+}
+
+.legende {
+  color: var(--gris);
+  font-size: 0.9rem;
+  margin-top: 18px;
+}
+
+/* Cacher le bouton quand la vidéo est en lecture */
+.video-wrapper.lecture-en-cours .bouton-play {
+  opacity: 0;
+  pointer-events: none;
+}
 
 /* Version mobile */
 
