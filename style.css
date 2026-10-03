@@ -254,6 +254,8 @@ box-sizing: border-box;
   font-size: 22px;
   height: 45px;
   position: fixed;
+      visibility: hidden;
+    opacity: 0;
   right: 20px;
   width: 45px;
   z-index: 10;
@@ -265,11 +267,15 @@ box-sizing: border-box;
 
 .bouton-haut.visible {
   display: block;
+      visibility: visible;
+    opacity: 1;
 }
 
 .bouton-haut:hover {
   background: #d9c4ff;
   color: #00033d;
+    background: var(--accent);
+  transform: translateY(-3px);
 }
 
 
