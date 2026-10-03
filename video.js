@@ -4,6 +4,7 @@ function initialiserVideo() {
   const wrapper = document.querySelector('.video-wrapper');
 
   if (!video || !boutonPlay || !wrapper) {
+     console.warn('Vidéo, bouton play ou wrapper introuvable.');
     return;
   }
 
