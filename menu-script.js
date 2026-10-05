@@ -91,34 +91,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // --- VIDÉO AVEC BOUTON PLAY ---
-  const video = document.querySelector('#video-ford');
-  const boutonPlay = document.querySelector('#bouton-play');
-  const wrapper = document.querySelector('.video-wrapper');
-
-  if (video && boutonPlay) {
-    boutonPlay.addEventListener('click', function () {
-      if (video.paused) {
-        video.play();
-        if (wrapper) wrapper.classList.add('lecture-en-cours');
-      } else {
-        video.pause();
-        if (wrapper) wrapper.classList.remove('lecture-en-cours');
-      }
-    });
-
-    if ('IntersectionObserver' in window) {
-      const observerVideo = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting && !video.paused) {
-            video.pause();
-            if (wrapper) wrapper.classList.remove('lecture-en-cours');
-          }
-        });
-      }, { threshold: 0.3 });
-
-      observerVideo.observe(video);
-    }
-  }
-
 });
