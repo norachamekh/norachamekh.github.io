@@ -16,8 +16,8 @@ function initialiserVideo() {
   video.controls = false;
 
   function centrerBouton() {
-    boutonPlay.style.left = '50%';
-    boutonPlay.style.top = '50%';
+   // boutonPlay.style.left = '50%';
+   // boutonPlay.style.top = '50%';
     boutonPlay.style.transform =
       'translate3d(-50%, -50%, 0)';
   }
