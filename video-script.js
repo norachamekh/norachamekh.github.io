@@ -86,4 +86,4 @@ function initialiserVideo() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', initialiserVideo);
+
