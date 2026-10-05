@@ -347,15 +347,15 @@ box-sizing: border-box;
 
 /* Petit zoom au survol du conteneur */
 /* Le zoom fonctionne seulement si la vidéo est en pause */
-.video-wrapper:not(.video-en-lecture):hover .video {
+.video-wrapper:not(.video-deja-lancee):hover .video {
   transform: scale(1.06);
 }
 
 /* Bouton play qui suit la souris */
 .bouton-play {
   align-items: center;
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
+  background: rgba(255, 255, 255, 0.92);
+  border: 0;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -363,10 +363,11 @@ box-sizing: border-box;
   justify-content: center;
     /* position initiale centrée, sera mise à jour par JS */
   left: 50%;
+  opacity: 1;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: opacity 0.25s ease, transform 0.1s ease-out, background 0.25s ease;
+  transition: left 0.35s ease, top 0.35s ease, opacity 0.5s ease, transform 0.35s ease, background 0.25s ease;
   width: 80px;
   /*  pointer-events: auto;  important */
   z-index: 5;
@@ -393,10 +394,32 @@ box-sizing: border-box;
   margin-top: 18px;
 }
 
-/* Cacher le bouton quand la vidéo est en lecture */
+/* Cacher le bouton quand la vidéo est en lecture 
 .video-wrapper.lecture-en-cours .bouton-play {
   opacity: 0;
   pointer-events: none;
+}*/
+
+/* Le bouton revient doucement au centre en quittant la vidéo */
+.video-wrapper:not(:hover) .bouton-play {
+  left: 50%;
+  top: 50%;
+}
+
+/* Le bouton disparaît définitivement après le premier lancement */
+.video-wrapper.video-deja-lancee .bouton-play {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.icone-play {
+  border-bottom: 10px solid transparent;
+  border-left: 18px solid #1d1d1b;
+  border-top: 10px solid transparent;
+  height: 0;
+  margin-left: 4px;
+  width: 0;
 }
 
 /* +Assombrir légèrement au survol */
