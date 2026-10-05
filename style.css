@@ -389,7 +389,7 @@ box-sizing: border-box;
 .video-wrapper.video-deja-lancee .bouton-play {
   opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.8);
+  transform: translate(-50%, -50%, 0) scale(0.8);
 }
 
 .bouton-play:hover {
