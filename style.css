@@ -168,17 +168,17 @@ h2 {
 }
 
 .projets-introduction {
-  align-items: end;
+  align-items: flex-end;
   display: flex;
   justify-content: space-between;
   margin-bottom: 70px;
 }
 
-.projets {
+/*.projets {
   display: grid;
   gap: 35px;
   grid-template-columns: repeat(3, 1fr);
-}
+}*/
 
 .projets-introduction h2 {
   margin-bottom: 0;
@@ -221,7 +221,6 @@ h2 {
 /* Images */
 
 .projet-image {
- /* background: #d9d9d9;*/
   display: block;
   overflow: hidden;
   position: relative;
@@ -231,7 +230,7 @@ h2 {
   aspect-ratio: 16 / 10;
   /*  aspect-ratio: 4 / 5; */
   display: block;
-    height: 100%;
+   /* height: 100%;*/
   object-fit: cover;
   transition:
     transform 0.8s 
@@ -243,12 +242,12 @@ h2 {
 .projet-large .projet-image img {
   aspect-ratio: 16 / 8;
 }
-
+/*
 .projet-image:hover img {
   filter: brightness(0.85);
   transform: scale(1.05);
   opacity: 1; 
-}
+}*/
 
 /* Overlay invisible au départ */
 
@@ -260,8 +259,9 @@ h2 {
   flex-direction: column;
   inset: 0;
   justify-content: flex-end;
-  opacity: 1;
+  opacity: 0;
   padding: 30px;
+  pointer-events: none;
   position: absolute;
   transform: translateY(15px);
   transition:
@@ -269,10 +269,10 @@ h2 {
     transform 0.4s ease;
   z-index: 2;
 }
-
+/*
 .projet-overlay:hover {
   opacity: 0;
-}
+}*/
   
 /* Apparition au survol */
 
@@ -315,6 +315,20 @@ h2 {
 
 .projet-image:hover .projet-overlay-fleche {
   transform: translate(5px, -5px);
+}
+
+/* Apparition des cartes au scroll */
+
+.projet:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.projet:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.projet:nth-child(4) {
+  transition-delay: 0.3s;
 }
 
 /* Informations sous l'image
@@ -702,7 +716,7 @@ box-sizing: border-box;
     padding-top: 90px;
   }
 
-  .projet-overlay {
+ .projet-overlay {
     opacity: 1;
     padding: 20px;
     transform: translateY(0);
