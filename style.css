@@ -697,6 +697,16 @@ box-sizing: border-box;
     padding-top: 90px;
   }
 
+  .projet-overlay {
+    opacity: 1;
+    padding: 20px;
+    transform: translateY(0);
+  }
+
+  .projet-overlay h3 {
+    font-size: 2rem;
+  }
+  
   .projets-introduction {
     align-items: flex-start;
     display: block;
