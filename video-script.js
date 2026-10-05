@@ -13,8 +13,8 @@ function initialiserVideo() {
   video.controls = false;
 
   function centrerBouton() {
-    boutonPlay.style.left = `${wrapper.clientWidth / 2}px`;
-    boutonPlay.style.top = `${wrapper.clientHeight / 2}px`;
+    boutonPlay.style.left = '50%';
+    boutonPlay.style.top = '50%';
   }
 
   /* Position initiale */
