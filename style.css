@@ -324,6 +324,9 @@ box-sizing: border-box;
 }
 
 .video-wrapper {
+  
+  --souris-x: 50%;
+  --souris-y: 50%;
   position: relative;
   width: 100%;
   /* ratio 16:9 */
@@ -359,7 +362,7 @@ box-sizing: border-box;
 /* Bouton play qui suit la souris */
 .bouton-play {
   align-items: center;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   border: 0;
   border-radius: 50%;
   cursor: pointer;
@@ -367,15 +370,15 @@ box-sizing: border-box;
   height: 80px;
   justify-content: center;
     /* position initiale centrée, sera mise à jour par JS */
-  left: 50%;
+    left: var(--souris-x);
   opacity: 1;
   position: absolute;
-  top: 50%;
+   top: var(--souris-y);
   transform: translate(-50%, -50%);
   transition: 
     left 0.12s linear,
     top 0.12s linear,
-    opacity 0.5s ease,
+    opacity 0.4s ease,
     background 0.25s ease; /*opacity 0.5s ease, transform 0.25s ease; */
   width: 80px;
   /* will-change: transform;
@@ -423,7 +426,13 @@ box-sizing: border-box;
   pointer-events: none;
 }*/
 
-
+/* Préférence accessibilité : réduire les animations si nécessaire */
+@media (prefers-reduced-motion: reduce) {
+  .video,
+  .bouton-play {
+    transition: none;
+  }
+}
 
 /* +Assombrir légèrement au survol 
 .video-wrapper::after {
