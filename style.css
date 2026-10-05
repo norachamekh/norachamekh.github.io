@@ -367,15 +367,15 @@ box-sizing: border-box;
   height: 80px;
   justify-content: center;
     /* position initiale centrée, sera mise à jour par JS */
-  left: 50%;
+  left: 0;
   opacity: 1;
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  transform: translate(-50%, -50%, 0);
   transition: opacity 0.5s ease, transform 0.25s ease;
   width: 80px;
-  /* will-change: transform;
-   pointer-events: auto;  important */
+   will-change: transform;
+  /* pointer-events: auto;  important */
   z-index: 5;
 }
 
