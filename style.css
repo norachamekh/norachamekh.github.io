@@ -367,7 +367,7 @@ box-sizing: border-box;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: left 0.35s ease, top 0.35s ease, opacity 0.5s ease, transform 0.35s ease, background 0.25s ease;
+  transition: left 0.35s ease, top 0.35s ease, opacity 0.5s ease, transform 0.35s ease;
   width: 80px;
   /*  pointer-events: auto;  important */
   z-index: 5;
@@ -413,6 +413,10 @@ box-sizing: border-box;
   transform: translate(-50%, -50%) scale(0.8);
 }
 
+.bouton-play:hover {
+  background: #fff;
+}
+
 .icone-play {
   border-bottom: 10px solid transparent;
   border-left: 18px solid #1d1d1b;
@@ -441,7 +445,7 @@ box-sizing: border-box;
   opacity: 1;
 }
 
-/* Version mobile */*/
+/* Version mobile */
 
 @media (max-width: 700px) {
 
