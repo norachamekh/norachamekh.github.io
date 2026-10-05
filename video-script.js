@@ -8,15 +8,17 @@ function initialiserVideo() {
     return;
   }
 
+  let videoDejaLancee = false;
+
   function placerBoutonAuCentre() {
     boutonPlay.style.left = '50%';
     boutonPlay.style.top = '50%';
     boutonPlay.style.transform = 'translate(-50%, -50%)';
   }
 
-  /* Le bouton suit la souris uniquement lorsque la vidéo est en pause */
+  /* Le bouton suit la souris seulement avant le premier lancement */
   wrapper.addEventListener('mousemove', function (e) {
-    if (!video.paused) {
+    if (videoDejaLancee) {
       return;
     }
 
@@ -30,14 +32,14 @@ function initialiserVideo() {
     boutonPlay.style.transform = 'translate(-50%, -50%)';
   });
 
-  /* Le bouton revient au centre en sortant de la vidéo */
+  /* Retour progressif au centre en quittant la vidéo */
   wrapper.addEventListener('mouseleave', function () {
-    if (video.paused) {
+    if (!videoDejaLancee) {
       placerBoutonAuCentre();
     }
   });
 
-  /* Lancement via le bouton flottant */
+  /* Lancement de la vidéo */
   boutonPlay.addEventListener('click', function (e) {
     e.stopPropagation();
 
@@ -46,34 +48,27 @@ function initialiserVideo() {
     if (promesseLecture !== undefined) {
       promesseLecture
         .then(function () {
-          wrapper.classList.add('video-en-lecture');
+          videoDejaLancee = true;
+
+          wrapper.classList.add('video-deja-lancee');
+
           placerBoutonAuCentre();
         })
         .catch(function (erreur) {
-          console.error('Impossible de lancer la vidéo :', erreur);
+          console.error(
+            'Impossible de lancer la vidéo :',
+            erreur
+          );
         });
     }
   });
 
-  /* Quand l'utilisateur appuie sur pause dans les contrôles */
-  video.addEventListener('pause', function () {
-    wrapper.classList.remove('video-en-lecture');
-    placerBoutonAuCentre();
-  });
-
-  /* Quand l'utilisateur relance la vidéo avec les contrôles */
-  video.addEventListener('play', function () {
-    wrapper.classList.add('video-en-lecture');
-    placerBoutonAuCentre();
-  });
-
-  /* Quand la vidéo arrive à la fin */
-  video.addEventListener('ended', function () {
-    wrapper.classList.remove('video-en-lecture');
+  /* Si la vidéo est lancée avec un contrôle natif */
+  video.addEventListener('playing', function () {
+    videoDejaLancee = true;
+    wrapper.classList.add('video-deja-lancee');
     placerBoutonAuCentre();
   });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  initialiserVideo();
-});
+document.addEventListener('DOMContentLoaded', initialiserVideo);
