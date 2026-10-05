@@ -9,15 +9,23 @@ function initialiserVideo() {
   }
 
   let videoDejaLancee = false;
-  let animationEnCours = false;
   let sourisX = 50;
   let sourisY = 50;
+  let animationEnCours = false;
 
   video.controls = false;
 
   function centrerBouton() {
     wrapper.style.setProperty('--souris-x', '50%');
     wrapper.style.setProperty('--souris-y', '50%');
+  }
+
+  function lancerVideo() {
+    videoDejaLancee = true;
+
+    wrapper.classList.add('video-deja-lancee');
+    video.controls = true;
+    centrerBouton();
   }
 
   function suivreSouris(e) {
@@ -40,30 +48,26 @@ function initialiserVideo() {
     animationEnCours = true;
 
     requestAnimationFrame(function () {
-      wrapper.style.setProperty(
-        '--souris-x',
-        `${sourisX}%`
-      );
-
-      wrapper.style.setProperty(
-        '--souris-y',
-        `${sourisY}%`
-      );
+      wrapper.style.setProperty('--souris-x', `${sourisX}%`);
+      wrapper.style.setProperty('--souris-y', `${sourisY}%`);
 
       animationEnCours = false;
     });
   }
 
-  wrapper.addEventListener('mousemove', suivreSouris);
+  wrapper.addEventListener('pointermove', suivreSouris);
 
-  wrapper.addEventListener('mouseleave', function () {
+  wrapper.addEventListener('pointerleave', function () {
     if (!videoDejaLancee) {
       centrerBouton();
     }
   });
 
-  boutonPlay.addEventListener('click', function (e) {
-    e.stopPropagation();
+  /* Le clic est géré par le wrapper, car le bouton visuel n'intercepte pas la souris */
+  wrapper.addEventListener('click', function () {
+    if (videoDejaLancee) {
+      return;
+    }
 
     const demandeLecture = video.play();
 
@@ -81,16 +85,6 @@ function initialiserVideo() {
     }
   });
 
-  function lancerVideo() {
-    videoDejaLancee = true;
-
-    wrapper.classList.add('video-deja-lancee');
-
-    video.controls = true;
-
-    centrerBouton();
-  }
-
   video.addEventListener('play', function () {
     if (!videoDejaLancee) {
       lancerVideo();
@@ -98,7 +92,6 @@ function initialiserVideo() {
   });
 
   video.addEventListener('ended', function () {
-    /* La vidéo reste considérée comme lancée */
     wrapper.classList.add('video-deja-lancee');
   });
 }
