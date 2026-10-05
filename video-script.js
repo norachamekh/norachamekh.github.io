@@ -41,10 +41,7 @@ function initialiserVideo() {
     requestAnimationFrame(function () {
       boutonPlay.style.transform =
         `translate3d(${sourisX}px, ${sourisY}px, 0) translate(-50%, -50%)`;
-   //   boutonPlay.style.left = `${sourisX}px`;
-  //    boutonPlay.style.top = `${sourisY}px`;
-   //   boutonPlay.style.transform =
-    //    'translate3d(-50%, -50%, 0)';
+
 
       animationEnCours = false;
     });
