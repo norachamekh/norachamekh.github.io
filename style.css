@@ -367,10 +367,10 @@ box-sizing: border-box;
   height: 80px;
   justify-content: center;
     /* position initiale centrée, sera mise à jour par JS */
-  left: 0;
+  left: 50%;
   opacity: 1;
   position: absolute;
-  top: 0;
+  top: 50%;
   transform: translate(-50%, -50%);
   transition: 
     left 0.12s linear,
