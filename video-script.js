@@ -9,17 +9,12 @@ function initialiserVideo() {
   }
 
   let videoDejaLancee = false;
-  let sourisX = 0;
-  let sourisY = 0;
-  let animationEnCours = false;
-  
+
   video.controls = false;
 
   function centrerBouton() {
-  boutonPlay.style.left = '50%';
-  boutonPlay.style.top = '50%';
-    boutonPlay.style.transform =
-      'translate3d(-50%, -50%, 0)';
+    boutonPlay.style.left = '50%';
+    boutonPlay.style.top = '50%';
   }
 
   wrapper.addEventListener('mousemove', function (e) {
@@ -29,22 +24,11 @@ function initialiserVideo() {
 
     const rect = wrapper.getBoundingClientRect();
 
-    sourisX = e.clientX - rect.left;
-    sourisY = e.clientY - rect.top;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-    if (animationEnCours) {
-      return;
-    }
-
-    animationEnCours = true;
-
-    requestAnimationFrame(function () {
-      boutonPlay.style.transform =
-        `translate3d(${sourisX}px, ${sourisY}px, 0) translate(-50%, -50%)`;
-
-
-      animationEnCours = false;
-    });
+    boutonPlay.style.left = `${x}px`;
+    boutonPlay.style.top = `${y}px`;
   });
 
   wrapper.addEventListener('mouseleave', function () {
@@ -83,4 +67,7 @@ function initialiserVideo() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', initialiserVideo);
+document.addEventListener(
+  'DOMContentLoaded',
+  initialiserVideo
+);
