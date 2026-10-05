@@ -7,7 +7,7 @@
   --gris: #77736d;
   --blanc: #ffccf2;
   --bordure: #d7d1c8;
-  --espace: 7vw;
+  --espace: 5vw;
 }
 
 * {
@@ -156,7 +156,7 @@ h2 {
 /* Sections */
 
 .section {
-  padding: 100px var(--espace);
+  padding: var(--espace);
  /* padding-left: 11vw; */
 }
 
