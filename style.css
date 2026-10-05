@@ -422,7 +422,7 @@ box-sizing: border-box;
   width: 0;
 }
 
-/* +Assombrir légèrement au survol */
+/* +Assombrir légèrement au survol 
 .video-wrapper::after {
   background: radial-gradient(
     circle at center,
@@ -432,7 +432,7 @@ box-sizing: border-box;
   content: '';
   inset: 0;
   opacity: 0;
-  pointer-events: none; /* important */
+  pointer-events: none; /* important 
   position: absolute;
   transition: opacity 0.4s ease;
 }
@@ -441,7 +441,7 @@ box-sizing: border-box;
   opacity: 1;
 }
 
-/* Version mobile */
+/* Version mobile */*/
 
 @media (max-width: 700px) {
 
