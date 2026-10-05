@@ -351,6 +351,11 @@ box-sizing: border-box;
   transform: scale(1.06);
 }
 
+/* Contrôles cachés avant le premier lancement */
+.video-wrapper:not(.video-deja-lancee) video::-webkit-media-controls {
+  display: none !important;
+}
+
 /* Bouton play qui suit la souris */
 .bouton-play {
   align-items: center;
@@ -366,7 +371,7 @@ box-sizing: border-box;
   opacity: 1;
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%, 0);
+  transform: translate(-50%, -50%);
   transition: opacity 0.5s ease, transform 0.25s ease;
   width: 80px;
   will-change: transform;
