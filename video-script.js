@@ -1,7 +1,7 @@
 function initialiserVideo() {
   const video = document.querySelector('#video-showreel');
   const boutonPlay = document.querySelector('#bouton-play');
-  const wrapper = document.querySelector('.video-wrapper');
+  const wrapper = document.querySelector('#video-wrapper');
 
   if (!video || !boutonPlay || !wrapper) {
     console.warn('Vidéo, bouton play ou wrapper introuvable.');
@@ -9,68 +9,97 @@ function initialiserVideo() {
   }
 
   let videoDejaLancee = false;
+  let animationEnCours = false;
+  let sourisX = 50;
+  let sourisY = 50;
 
   video.controls = false;
 
   function centrerBouton() {
-    boutonPlay.style.left = '50%';
-    boutonPlay.style.top = '50%';
+    wrapper.style.setProperty('--souris-x', '50%');
+    wrapper.style.setProperty('--souris-y', '50%');
   }
 
-  /* Position initiale */
-  centrerBouton();
-
-  /* Le bouton suit la souris */
-  wrapper.addEventListener('mousemove', function (e) {
+  function suivreSouris(e) {
     if (videoDejaLancee) {
       return;
     }
 
     const rect = wrapper.getBoundingClientRect();
 
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    sourisX = ((e.clientX - rect.left) / rect.width) * 100;
+    sourisY = ((e.clientY - rect.top) / rect.height) * 100;
 
-    boutonPlay.style.left = `${x}px`;
-    boutonPlay.style.top = `${y}px`;
-  });
+    sourisX = Math.max(0, Math.min(100, sourisX));
+    sourisY = Math.max(0, Math.min(100, sourisY));
 
-  /* Retour doux au centre */
+    if (animationEnCours) {
+      return;
+    }
+
+    animationEnCours = true;
+
+    requestAnimationFrame(function () {
+      wrapper.style.setProperty(
+        '--souris-x',
+        `${sourisX}%`
+      );
+
+      wrapper.style.setProperty(
+        '--souris-y',
+        `${sourisY}%`
+      );
+
+      animationEnCours = false;
+    });
+  }
+
+  wrapper.addEventListener('mousemove', suivreSouris);
+
   wrapper.addEventListener('mouseleave', function () {
     if (!videoDejaLancee) {
       centrerBouton();
     }
   });
 
-  /* Lancement de la vidéo */
   boutonPlay.addEventListener('click', function (e) {
     e.stopPropagation();
 
-    const lecture = video.play();
+    const demandeLecture = video.play();
 
-    if (lecture !== undefined) {
-      lecture
+    if (demandeLecture !== undefined) {
+      demandeLecture
         .then(function () {
-          videoDejaLancee = true;
-          video.controls = true;
-          wrapper.classList.add('video-deja-lancee');
-          centrerBouton();
+          lancerVideo();
         })
         .catch(function (erreur) {
           console.error(
-            'La vidéo ne peut pas démarrer :',
+            'Impossible de lancer la vidéo :',
             erreur
           );
         });
     }
   });
 
-  /* Si la vidéo est lancée avec les contrôles */
-  video.addEventListener('play', function () {
+  function lancerVideo() {
     videoDejaLancee = true;
-    video.controls = true;
+
     wrapper.classList.add('video-deja-lancee');
+
+    video.controls = true;
+
     centrerBouton();
+  }
+
+  video.addEventListener('play', function () {
+    if (!videoDejaLancee) {
+      lancerVideo();
+    }
+  });
+
+  video.addEventListener('ended', function () {
+    /* La vidéo reste considérée comme lancée */
+    wrapper.classList.add('video-deja-lancee');
   });
 }
 
