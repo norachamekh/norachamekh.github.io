@@ -413,10 +413,6 @@ box-sizing: border-box;
   transform: translate(-50%, -50%) scale(0.8);
 }
 
-.bouton-play:hover {
-  background: #fff;
-}
-
 .icone-play {
   border-bottom: 10px solid transparent;
   border-left: 18px solid #1d1d1b;
