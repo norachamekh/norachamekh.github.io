@@ -9,10 +9,10 @@ function initialiserVideo() {
   }
 
   let videoDejaLancee = false;
-  let animationEnCours = false;
   let sourisX = 0;
   let sourisY = 0;
-
+  let animationEnCours = false;
+  
   video.controls = false;
 
   function centrerBouton() {
