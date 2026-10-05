@@ -13,10 +13,14 @@ function initialiserVideo() {
   video.controls = false;
 
   function centrerBouton() {
-    boutonPlay.style.left = '50%';
-    boutonPlay.style.top = '50%';
+    boutonPlay.style.left = `${wrapper.clientWidth / 2}px`;
+    boutonPlay.style.top = `${wrapper.clientHeight / 2}px`;
   }
 
+  /* Position initiale */
+  centrerBouton();
+
+  /* Le bouton suit la souris */
   wrapper.addEventListener('mousemove', function (e) {
     if (videoDejaLancee) {
       return;
@@ -31,12 +35,14 @@ function initialiserVideo() {
     boutonPlay.style.top = `${y}px`;
   });
 
+  /* Retour doux au centre */
   wrapper.addEventListener('mouseleave', function () {
     if (!videoDejaLancee) {
       centrerBouton();
     }
   });
 
+  /* Lancement de la vidéo */
   boutonPlay.addEventListener('click', function (e) {
     e.stopPropagation();
 
@@ -59,6 +65,7 @@ function initialiserVideo() {
     }
   });
 
+  /* Si la vidéo est lancée avec les contrôles */
   video.addEventListener('play', function () {
     videoDejaLancee = true;
     video.controls = true;
