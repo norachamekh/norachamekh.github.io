@@ -9,14 +9,15 @@ function initialiserVideo() {
   }
 
   let videoDejaLancee = false;
+  let positionSourisX = 0;
+  let positionSourisY = 0;
+  let animationEnCours = false;
 
   function placerBoutonAuCentre() {
-    boutonPlay.style.left = '50%';
-    boutonPlay.style.top = '50%';
-    boutonPlay.style.transform = 'translate(-50%, -50%)';
+    boutonPlay.style.transform =
+      'translate3d(-50%, -50%, 0)';
   }
 
-  /* Le bouton suit la souris seulement avant le premier lancement */
   wrapper.addEventListener('mousemove', function (e) {
     if (videoDejaLancee) {
       return;
@@ -24,22 +25,29 @@ function initialiserVideo() {
 
     const rect = wrapper.getBoundingClientRect();
 
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    positionSourisX = e.clientX - rect.left;
+    positionSourisY = e.clientY - rect.top;
 
-    boutonPlay.style.left = `${x}px`;
-    boutonPlay.style.top = `${y}px`;
-    boutonPlay.style.transform = 'translate(-50%, -50%)';
+    if (animationEnCours) {
+      return;
+    }
+
+    animationEnCours = true;
+
+    requestAnimationFrame(function () {
+      boutonPlay.style.transform =
+        `translate3d(${positionSourisX}px, ${positionSourisY}px, 0) translate(-50%, -50%)`;
+
+      animationEnCours = false;
+    });
   });
 
-  /* Retour progressif au centre en quittant la vidéo */
   wrapper.addEventListener('mouseleave', function () {
     if (!videoDejaLancee) {
       placerBoutonAuCentre();
     }
   });
 
-  /* Lancement de la vidéo */
   boutonPlay.addEventListener('click', function (e) {
     e.stopPropagation();
 
@@ -49,9 +57,7 @@ function initialiserVideo() {
       promesseLecture
         .then(function () {
           videoDejaLancee = true;
-
           wrapper.classList.add('video-deja-lancee');
-
           placerBoutonAuCentre();
         })
         .catch(function (erreur) {
@@ -63,7 +69,6 @@ function initialiserVideo() {
     }
   });
 
-  /* Si la vidéo est lancée avec un contrôle natif */
   video.addEventListener('playing', function () {
     videoDejaLancee = true;
     wrapper.classList.add('video-deja-lancee');
