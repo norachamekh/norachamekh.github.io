@@ -8,21 +8,20 @@ function initialiserVideo() {
     return;
   }
 
-  // let videoDejaLancee = false;
+  let videoDejaLancee = false;
   let animationEnCours = false;
   let sourisX = 0;
   let sourisY = 0;
 
-
-  // Masquer les contrôles au départ
   video.controls = false;
 
   function centrerBouton() {
+    boutonPlay.style.left = '50%';
+    boutonPlay.style.top = '50%';
     boutonPlay.style.transform =
-      'translate(-50%, -50%)';
+      'translate3d(-50%, -50%, 0)';
   }
 
-  // Mouvement fluide du bouton avant le premier lancement
   wrapper.addEventListener('mousemove', function (e) {
     if (videoDejaLancee) {
       return;
@@ -40,28 +39,21 @@ function initialiserVideo() {
     animationEnCours = true;
 
     requestAnimationFrame(function () {
-    boutonPlay.style.left = `${sourisX}px`;
-    boutonPlay.style.top = `${sourisY}px`;
-    boutonPlay.style.transform =
-      'translate3d(-50%, -50%, 0)';
+      boutonPlay.style.left = `${sourisX}px`;
+      boutonPlay.style.top = `${sourisY}px`;
+      boutonPlay.style.transform =
+        'translate3d(-50%, -50%, 0)';
 
       animationEnCours = false;
     });
   });
 
-  // Retour doux au centre
   wrapper.addEventListener('mouseleave', function () {
     if (!videoDejaLancee) {
-    return;
-  }
+      centrerBouton();
+    }
+  });
 
-  boutonPlay.style.left = '50%';
-  boutonPlay.style.top = '50%';
-  boutonPlay.style.transform =
-    'translate3d(-50%, -50%, 0)';
-});
-
-  // Lancement avec le bouton personnalisé
   boutonPlay.addEventListener('click', function (e) {
     e.stopPropagation();
 
@@ -71,12 +63,8 @@ function initialiserVideo() {
       lecture
         .then(function () {
           videoDejaLancee = true;
-
-          wrapper.classList.add('video-deja-lancee');
-
-          // Les contrôles deviennent disponibles
           video.controls = true;
-
+          wrapper.classList.add('video-deja-lancee');
           centrerBouton();
         })
         .catch(function (erreur) {
@@ -88,13 +76,10 @@ function initialiserVideo() {
     }
   });
 
-  // Si la vidéo est lancée depuis un autre contrôle
   video.addEventListener('play', function () {
     videoDejaLancee = true;
-
-    wrapper.classList.add('video-deja-lancee');
     video.controls = true;
-
+    wrapper.classList.add('video-deja-lancee');
     centrerBouton();
   });
 }
