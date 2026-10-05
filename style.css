@@ -221,7 +221,7 @@ h2 {
 /* Images */
 
 .projet-image {
-  background: #d9d9d9;
+ /* background: #d9d9d9;*/
   display: block;
   overflow: hidden;
   position: relative;
@@ -231,9 +231,11 @@ h2 {
   aspect-ratio: 16 / 10;
   /*  aspect-ratio: 4 / 5; */
   display: block;
+    height: 100%;
   object-fit: cover;
   transition:
-    transform 0.8s cubic-bezier(0.2, 0.65, 0.3, 1),
+    transform 0.8s 
+        cubic-bezier(0.2, 0.65, 0.3, 1),
     filter 0.5s ease;
   width: 100%;
 }
@@ -247,7 +249,70 @@ h2 {
   transform: scale(1.05);
 }
 
-/* Informations sous l'image */
+/* Overlay invisible au départ */
+
+.projet-overlay {
+  align-items: flex-start;
+  background: rgba(0, 3, 61, 0.78);
+  color: var(--blanc);
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  justify-content: flex-end;
+  opacity: 0;
+  padding: 30px;
+  position: absolute;
+  transform: translateY(15px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  z-index: 2;
+}
+
+/* Apparition au survol */
+
+.projet-image:hover .projet-overlay,
+.projet-image:focus-visible .projet-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Zoom léger de l'image */
+
+.projet-image:hover img {
+  filter: brightness(0.75);
+  transform: scale(1.06);
+}
+
+/* Texte de l'overlay */
+
+.projet-overlay-categorie {
+  color: var(--blanc);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.projet-overlay h3 {
+  color: var(--blanc);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.projet-overlay-fleche {
+  font-size: 1.8rem;
+  margin-top: 25px;
+  transition: transform 0.3s ease;
+}
+
+.projet-image:hover .projet-overlay-fleche {
+  transform: translate(5px, -5px);
+}
+
+/* Informations sous l'image
 
 .projet-informations {
   align-items: flex-start;
@@ -261,7 +326,7 @@ h2 {
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 3px;
-  /*margin-top: 18px;*/
+  /*margin-top: 18px;
 }
 
 .projet-informations p {
@@ -280,7 +345,7 @@ h2 {
   transform: translate(4px, -4px);
 }
 
-/* Apparition au scroll */
+/* Apparition au scroll 
 
 .projet.reveal:nth-child(2) {
   transition-delay: 0.1s;
@@ -293,7 +358,7 @@ h2 {
 .projet.reveal:nth-child(4) {
   transition-delay: 0.3s;
 }
-
+ */
 
 .apropos {
   background: var(--texte);
