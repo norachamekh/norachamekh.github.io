@@ -373,6 +373,19 @@ box-sizing: border-box;
   z-index: 5;
 }
 
+/* Le bouton revient doucement au centre en quittant la vidéo */
+.video-wrapper:not(:hover) .bouton-play {
+  left: 50%;
+  top: 50%;
+}
+
+/* Le bouton disparaît définitivement après le premier lancement */
+.video-wrapper.video-deja-lancee .bouton-play {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
 .bouton-play:hover {
   background: #fff;
  /* transform: translate(-50%, -50%) scale(1.08);*/
@@ -400,27 +413,7 @@ box-sizing: border-box;
   pointer-events: none;
 }*/
 
-/* Le bouton revient doucement au centre en quittant la vidéo */
-.video-wrapper:not(:hover) .bouton-play {
-  left: 50%;
-  top: 50%;
-}
 
-/* Le bouton disparaît définitivement après le premier lancement */
-.video-wrapper.video-deja-lancee .bouton-play {
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.8);
-}
-
-.icone-play {
-  border-bottom: 10px solid transparent;
-  border-left: 18px solid #1d1d1b;
-  border-top: 10px solid transparent;
-  height: 0;
-  margin-left: 4px;
-  width: 0;
-}
 
 /* +Assombrir légèrement au survol 
 .video-wrapper::after {
