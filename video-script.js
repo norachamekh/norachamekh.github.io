@@ -39,10 +39,12 @@ function initialiserVideo() {
     animationEnCours = true;
 
     requestAnimationFrame(function () {
-      boutonPlay.style.left = `${sourisX}px`;
-      boutonPlay.style.top = `${sourisY}px`;
       boutonPlay.style.transform =
-        'translate3d(-50%, -50%, 0)';
+        `translate3d(${sourisX}px, ${sourisY}px, 0) translate(-50%, -50%)`;
+   //   boutonPlay.style.left = `${sourisX}px`;
+  //    boutonPlay.style.top = `${sourisY}px`;
+   //   boutonPlay.style.transform =
+    //    'translate3d(-50%, -50%, 0)';
 
       animationEnCours = false;
     });
