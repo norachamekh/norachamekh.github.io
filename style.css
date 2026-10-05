@@ -366,18 +366,19 @@ box-sizing: border-box;
   opacity: 1;
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
-  transition: left 0.35s ease, top 0.35s ease, opacity 0.5s ease, transform 0.35s ease;
+  transform: translate(-50%, -50%, 0);
+  transition: opacity 0.5s ease, transform 0.25s ease;
   width: 80px;
+  will-change: transform;
   /*  pointer-events: auto;  important */
   z-index: 5;
 }
 
-/* Le bouton revient doucement au centre en quittant la vidéo */
+/* Le bouton revient doucement au centre en quittant la vidéo
 .video-wrapper:not(:hover) .bouton-play {
   left: 50%;
   top: 50%;
-}
+} */
 
 /* Le bouton disparaît définitivement après le premier lancement */
 .video-wrapper.video-deja-lancee .bouton-play {
