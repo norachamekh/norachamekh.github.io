@@ -270,7 +270,8 @@ h2 {
 }
 
 .projet-fleche {
-  color: var(--texte);
+  color: var(--accent);
+   -webkit-text-stroke: thick;
   font-size: 1.4rem;
   transition: transform 0.3s ease;
 }
