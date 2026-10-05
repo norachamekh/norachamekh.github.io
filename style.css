@@ -346,11 +346,12 @@ box-sizing: border-box;
 }
 
 /* Petit zoom au survol du conteneur */
-.video-wrapper:hover .video {
+/* Le zoom fonctionne seulement si la vidéo est en pause */
+.video-wrapper:not(.video-en-lecture):hover .video {
   transform: scale(1.06);
 }
 
-/* Bouton play */
+/* Bouton play qui suit la souris */
 .bouton-play {
   align-items: center;
   background: rgba(255, 255, 255, 0.9);
@@ -365,9 +366,9 @@ box-sizing: border-box;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out, background 0.3s ease;
+  transition: opacity 0.25s ease, transform 0.1s ease-out, background 0.25s ease;
   width: 80px;
-    pointer-events: auto; /* important */
+  /*  pointer-events: auto;  important */
   z-index: 5;
 }
 
