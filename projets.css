@@ -1,40 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap');
 
-:root {
-  --fond: #f4ecf3;
-  --texte: #1d1d1b;
-  --accent: #d85c3e;
-  --gris: #77736d;
-  --blanc: #ffffff;
-  --espace: 20px;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--fond);
-  color: var(--texte);
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.5;
-  
-  font-family: 'Poppins', sans-serif;
-  background-color: #f1f1f1;
-  overflow-x: hidden;
-}
-
-main
-{ 
-  padding-left: 3vw;
-}
-
 /* En-tête général */
 .header {
   align-items: center;
@@ -63,6 +28,7 @@ main
   padding: 15px 22px;
   transition: 0.3s ease;
   }
+
 .ligne-carte {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -87,80 +53,6 @@ main
     speak: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-.bouton-haut {
-  align-items: center;
-  background: var(--texte);
-  border: 0;
-  border-radius: 50%;
-  bottom: 25px;
-  color: var(--blanc);
-  cursor: pointer;
-  display: flex;
-  font-size: 1.4rem;
-  height: 48px;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  position: fixed;
-  right: 25px;
-  transform: translateY(15px);
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease,
-    background 0.3s ease;
-  width: 48px;
-  z-index: 50;
-}
-
-.bouton-haut.visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.bouton-haut:hover {
-  background: var(--accent);
-  transform: translateY(-4px);
-}
-
-.bouton-haut:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 4px;
-}
-
-
-/* Bouton retour en haut */
-
-
-footer {
-   background-color: #5d1854;
-}
-
-
-.logo {
-  color: var(--texte);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-
-}
-
-.bouton {
-  background: var(--texte);
-  color: var(--blanc);
-  display: inline-block;
-  font-size: 0.9rem;
-  padding: 15px 22px;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-
-.bouton:hover {
-  background: var(--accent);
-  transform: translateY(-3px);
 }
 
 .section {
@@ -201,26 +93,190 @@ footer {
   max-width: 650px;
 }
 
+/* Page projets */
 
-footer {
-  border-top: 1px solid #d7d1c8;
-  color: var(--gris);
-  font-size: 0.8rem;
-  padding: 25px var(--espace);
+.projets-page {
+  padding-bottom: 140px;
+  padding-top: 120px;
 }
 
+.projets-page-introduction {
+  margin-bottom: 100px;
+  max-width: 1000px;
+}
+
+.projets-page-introduction h1 {
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  margin-bottom: 35px;
+}
+
+.projets-page-description {
+  color: var(--gris);
+  font-size: 1.05rem;
+  max-width: 430px;
+}
+
+/* Grille */
+
+.projets-grille {
+  align-items: start;
+  display: grid;
+  gap: 90px 32px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.projet {
+  min-width: 0;
+}
+
+.projet-large {
+  grid-column: span 2;
+}
+
+.projet-petit {
+  grid-column: span 1;
+}
+
+.projet:nth-child(2) {
+  margin-top: 80px;
+}
+
+.projet:nth-child(3) {
+  margin-top: -20px;
+}
+
+/* Images */
+
+.projet-image {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.projet-image img {
+  aspect-ratio: 16 / 10;
+  display: block;
+  object-fit: cover;
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.65, 0.3, 1),
+    filter 0.5s ease;
+  width: 100%;
+}
+
+.projet-large .projet-image img {
+  aspect-ratio: 16 / 8;
+}
+
+.projet-image:hover img {
+  filter: brightness(0.75);
+  transform: scale(1.06);
+}
+
+/* Overlay */
+
+.projet-overlay {
+  align-items: flex-start;
+  background: rgba(0, 3, 61, 0.78);
+  color: var(--blanc);
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  justify-content: flex-end;
+  opacity: 0;
+  padding: 35px;
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(20px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.projet-image:hover .projet-overlay,
+.projet-image:focus-visible .projet-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projet-overlay-categorie {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.projet-overlay h2 {
+  color: var(--blanc);
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  margin-bottom: 0;
+}
+
+.projet-overlay-fleche {
+  font-size: 1.8rem;
+  margin-top: 28px;
+  transition: transform 0.3s ease;
+}
+
+.projet-image:hover .projet-overlay-fleche {
+  transform: translate(5px, -5px);
+}
+
+/* Contact */
+
+.projets-contact {
+  min-height: 65vh;
+  padding-bottom: 140px;
+  padding-top: 140px;
+}
+
+
 /* Version mobile */
+
 @media (max-width: 700px) {
-  .header {
-    /* align-items: flex-start;
-    flex-direction: column;
-    gap: 20px;
-    position: relative; */ 
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
+  .projets-page {
+    padding-bottom: 80px;
+    padding-top: 80px;
   }
-  
+
+  .projets-page-introduction {
+    margin-bottom: 60px;
+  }
+
+  .projets-page-introduction h1 {
+    font-size: clamp(3rem, 16vw, 5rem);
+  }
+
+  .projets-grille {
+    display: block;
+  }
+
+  .projet,
+  .projet:nth-child(2),
+  .projet:nth-child(3) {
+    margin-bottom: 55px;
+    margin-top: 0;
+  }
+
+  .projet-image img,
+  .projet-large .projet-image img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .projet-overlay {
+    opacity: 1;
+    padding: 22px;
+    transform: translateY(0);
+  }
+
+  .projet-overlay h2 {
+    font-size: 2.2rem;
+  }
+
+  .projets-contact {
+    min-height: 55vh;
+    padding-bottom: 90px;
+    padding-top: 90px;
+  }
 
   .navigation {
     background: var(--fond);
@@ -235,26 +291,8 @@ footer {
     z-index: 10;
   }
 
- .navigation.menu-ouvert {
-    display: flex;
-  }
-
-  .navigation a {
-    border-bottom: 1px solid #d7d1c8;
-    padding: 15px 0;
-  }
-
-  .hero {
-    min-height: 70vh;
-    padding-top: 10vh;
-  }
-
   .projets {
     grid-template-columns: 1fr;
   }
 
-  .section {
-    padding-bottom: 70px;
-    padding-top: 70px;
-  }
 }
