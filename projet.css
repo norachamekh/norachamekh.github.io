@@ -14,7 +14,7 @@
 .projet-introduction {
   color: var(--gris);
   font-size: 1.15rem;
-  margin-left: 50%;
+  margin-left: 10%;
   max-width: 430px;
 }
 
@@ -38,7 +38,7 @@
   display: grid;
   gap: 80px;
   grid-template-columns: 1.4fr 0.6fr;
-  padding: 140px var(--espace);
+  padding: 40px var(--espace);
 }
 
 .projet-description {
