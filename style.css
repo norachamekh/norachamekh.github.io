@@ -6,7 +6,7 @@
   --accent: #836ce6;
   --gris: #77736d;
   --blanc: #ffccf2;
-  --bordure: #d7d1c8;
+  --bordure: #d9c4ff;
   --espace: 5vw;
 }
 
@@ -148,7 +148,8 @@ h2 {
 }
 
 .bouton:hover {
-  background: var(--accent);
+  background: var(--bordure);
+  color: var(--texte);
   transform: translateY(-3px);
 }
 
