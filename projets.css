@@ -1,60 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap');
 
-.work-project-media {
-  overflow: hidden;
-  position: relative;
-}
 
-.work-project-media img {
-  aspect-ratio: 16 / 9;
-  display: block;
-  object-fit: cover;
-  transition:
-    transform 0.8s cubic-bezier(0.2, 0.65, 0.3, 1),
-    filter 0.5s ease;
-  width: 100%;
-}
-
-.work-project-large .work-project-media img {
-  aspect-ratio: 16 / 8;
-}
-
-.work-project:hover .work-project-media img {
-  filter: brightness(0.72);
-  transform: scale(1.05);
-}
-
-.work-project-arrow {
-  align-items: center;
-  background: var(--blanc);
-  border-radius: 50%;
-  color: var(--texte);
-  display: flex;
-  font-size: 1.6rem;
-  height: 66px;
-  justify-content: center;
-  left: 50%;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition:
-    opacity 0.35s ease,
-    background 0.25s ease,
-    color 0.25s ease;
-  width: 66px;
-  z-index: 2;
-}
-
-.work-project:hover .work-project-arrow {
-  opacity: 1;
-}
-
-/* Petite flèche sur les bords */
-.work-project-arrow.pres-du-bord {
-  animation: fleche-vers-le-bord 0.7s ease-in-out;
-}
 
 @keyframes fleche-vers-le-bord {
   0% {
@@ -168,6 +114,7 @@
     transform 0.8s cubic-bezier(0.2, 0.65, 0.3, 1),
     filter 0.5s ease;
   width: 100%;
+  /*  aspect-ratio: 16 / 9;*/
 }
 
 .work-project-large .work-project-media img {
@@ -181,33 +128,51 @@
   transform: scale(1.06);
 }
 
-/* Flèche */
+.work-project-media {
+  overflow: hidden;
+  position: relative;
+}
 
+/* Flèche */
 .work-project-arrow {
   align-items: center;
   background: var(--blanc);
   border-radius: 50%;
   color: var(--texte);
   display: flex;
-  font-size: 1.3rem;
-  height: 54px;
+  font-size: 1.6rem;
+  height: 66px;
   justify-content: center;
   left: 50%;
-  opacity: 0;  
+  opacity: 0;
   pointer-events: none;
   position: absolute;
   top: 50%;
+  transform: translate(-50%, -50%);
+  transition:
+    opacity 0.35s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+  width: 66px;
+  z-index: 2;
+
+  font-size: 1.3rem;
+  height: 54px;
   transform: translate(-50%, -50%) scale(0.7);
   transition:    
     opacity 0.35s ease,
     transform 0.4s ease;
   width: 54px;
-  z-index: 2;
 }
 
 .work-project:hover .work-project-arrow {
   opacity: 1;
  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Petite flèche sur les bords */
+.work-project-arrow.pres-du-bord {
+  animation: fleche-vers-le-bord 0.7s ease-in-out;
 }
 
 /* Informations sous les images*/
@@ -264,22 +229,7 @@
 .work-project:nth-child(4).reveal {
   transition-delay: 0.3s;
 }
-
-/* Apparition au scroll */
-
-.work-project.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
-}
-
-.work-project.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/*
 .work-project:nth-child(2) {
   transition-delay: 0.1s;
 }
@@ -290,7 +240,7 @@
 
 .work-project:nth-child(4) {
   transition-delay: 0.3s;
-}
+}*/
 
 /* Contact */
 
