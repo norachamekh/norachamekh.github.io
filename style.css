@@ -388,7 +388,7 @@ box-sizing: border-box;
 }
 
 .social a {
-        color: var(--bordure);
+        color: var(--texte);
     line-height: 1;
     padding: 8px 0;
     margin: 2%;
