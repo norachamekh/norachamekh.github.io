@@ -151,6 +151,8 @@ h2 {
   background: var(--bordure);
   color: var(--texte);
   transform: translateY(-3px);
+  /*transition: all 0.4s;*/
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 /* Sections */
