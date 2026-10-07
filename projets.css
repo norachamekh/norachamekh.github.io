@@ -61,7 +61,7 @@
   display: grid;
   gap: 70px 28px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  padding: 0 var(--espace) 140px;
+ /* padding: 0 var(--espace) 140px;*/
 }
 
 .work-project {
@@ -423,6 +423,7 @@
 
 .section {
   padding: 100px var(--espace);
+  padding: 30px;
   padding-top: inherit;
 }
 
@@ -479,7 +480,7 @@
 .projets-page-description {
   color: var(--gris);
   font-size: 1.05rem;
-  max-width: 430px;
+  /*max-width: 430px;*/
 }
 
 /* Grille */
