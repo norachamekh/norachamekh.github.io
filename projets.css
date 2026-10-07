@@ -1,5 +1,236 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap');
 
+/* Page Work */
+
+.work-intro {
+  min-height: 75vh;
+  padding: 130px var(--espace) 100px;
+}
+
+.work-intro h1 {
+  font-size: clamp(4rem, 11vw, 11rem);
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+  max-width: 1000px;
+}
+
+.work-intro-description {
+  color: var(--gris);
+  font-size: 1rem;
+  margin-left: 58%;
+  margin-top: 70px;
+  max-width: 300px;
+}
+
+/* Liste des projets */
+
+.work-list {
+  display: grid;
+  gap: 130px 32px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0 var(--espace) 160px;
+}
+
+.work-project {
+  color: var(--texte);
+  display: block;
+  text-decoration: none;
+}
+
+.work-project-large {
+  grid-column: span 2;
+}
+
+.work-project-small {
+  grid-column: span 1;
+}
+
+.work-project:nth-child(2) {
+  margin-top: 120px;
+}
+
+.work-project:nth-child(3) {
+  margin-top: -30px;
+}
+
+/* Image */
+
+.work-project-media {
+  overflow: hidden;
+  position: relative;
+}
+
+.work-project-media img {
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition:
+    transform 0.9s cubic-bezier(0.2, 0.65, 0.3, 1),
+    filter 0.5s ease;
+  width: 100%;
+}
+
+.work-project-large .work-project-media img {
+  aspect-ratio: 16 / 8;
+}
+
+/* Mouvement au survol */
+
+.work-project:hover .work-project-media img {
+  filter: brightness(0.72);
+  transform: scale(1.07);
+}
+
+/* Flèche */
+
+.work-project-arrow {
+  align-items: center;
+  background: var(--blanc);
+  border-radius: 50%;
+  color: var(--texte);
+  display: flex;
+  font-size: 1.6rem;
+  height: 66px;
+  justify-content: center;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.7) rotate(-45deg);
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s cubic-bezier(0.2, 0.65, 0.3, 1);
+  width: 66px;
+}
+
+.work-project:hover .work-project-arrow {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+}
+
+/* Informations */
+
+.work-project-info {
+  align-items: flex-start;
+  border-bottom: 1px solid var(--bordure);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 16px;
+}
+
+.work-project-info p {
+  color: var(--gris);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.work-project-info h2 {
+  font-size: clamp(1.8rem, 3vw, 3.5rem);
+  margin: 0;
+}
+
+.work-project-info > span {
+  color: var(--gris);
+  font-size: 0.8rem;
+}
+
+/* Apparition au scroll */
+
+.work-project.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.work-project.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.work-project:nth-child(2).reveal {
+  transition-delay: 0.1s;
+}
+
+.work-project:nth-child(3).reveal {
+  transition-delay: 0.2s;
+}
+
+.work-project:nth-child(4).reveal {
+  transition-delay: 0.3s;
+}
+
+/* Contact */
+
+.work-contact {
+  min-height: 70vh;
+  padding: 140px var(--espace);
+}
+
+.work-contact h2 {
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 0.95;
+  margin-bottom: 45px;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .work-intro {
+    min-height: auto;
+    padding-bottom: 100px;
+    padding-top: 90px;
+  }
+
+  .work-intro h1 {
+    font-size: clamp(3.5rem, 16vw, 6rem);
+  }
+
+  .work-intro-description {
+    margin-left: 0;
+    margin-top: 45px;
+    max-width: 100%;
+  }
+
+  .work-list {
+    display: block;
+    padding-bottom: 90px;
+  }
+
+  .work-project,
+  .work-project:nth-child(2),
+  .work-project:nth-child(3) {
+    margin-bottom: 75px;
+    margin-top: 0;
+  }
+
+  .work-project-media img,
+  .work-project-large .work-project-media img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .work-project-arrow {
+    height: 52px;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    width: 52px;
+  }
+
+  .work-project-info h2 {
+    font-size: 2rem;
+  }
+
+  .work-contact {
+    min-height: 55vh;
+    padding-bottom: 90px;
+    padding-top: 90px;
+  }
+}
+
 
 /*.projets {
   display: grid;
