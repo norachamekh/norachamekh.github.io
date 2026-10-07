@@ -263,7 +263,7 @@ h2 {
   background: #00033da3;
   color: var(--blanc);
   display: flex;
-      margin-top: 50%;
+      margin-top: 30%;
   flex-direction: column;
   inset: 0;
   justify-content: flex-end;
