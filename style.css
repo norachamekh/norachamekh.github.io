@@ -638,8 +638,8 @@ box-sizing: border-box;
     padding: 20px var(--espace) 25px;
     position: absolute;
     right: 0;
-    top: 80px;
-    z-index: 20;
+    top: 100%;
+    z-index: 20;   
   }
 
   .navigation.menu-ouvert {
