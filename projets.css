@@ -253,6 +253,208 @@
 }
 
 
+/*selection*/
+/* Sélection de projets */
+
+.section-selection {
+  padding-bottom: 150px;
+  padding-top: 130px;
+}
+
+.selection-header {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr 1.4fr 0.7fr;
+  margin-bottom: 110px;
+}
+
+.selection-header .sur-titre {
+  align-self: start;
+}
+
+.selection-header h1 {
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  line-height: 0.95;
+}
+
+.selection-description {
+  align-self: end;
+  color: var(--gris);
+  max-width: 260px;
+}
+
+/* Liste des projets */
+
+.selection-projets {
+  display: flex;
+  flex-direction: column;
+  gap: 130px;
+}
+
+.selection-projet {
+  color: var(--texte);
+  display: block;
+  text-decoration: none;
+}
+
+.selection-image {
+  background: #d7d7d7;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.selection-image img {
+  aspect-ratio: 16 / 8;
+  display: block;
+  height: 110%;
+  object-fit: cover;
+  transform: translateY(-5%);
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.65, 0.3, 1),
+    filter 0.5s ease;
+  width: 100%;
+}
+
+/* Zoom léger au survol */
+
+.selection-projet:hover .selection-image img {
+  filter: brightness(0.78);
+  transform: translateY(-5%) scale(1.04);
+}
+
+/* Informations */
+
+.selection-informations {
+  align-items: flex-start;
+  border-bottom: 1px solid var(--bordure);
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0 18px;
+}
+
+.selection-categorie {
+  color: var(--gris);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.selection-informations h2 {
+  font-size: clamp(1.8rem, 3vw, 3.5rem);
+  margin: 0;
+}
+
+/* Flèche */
+
+.selection-fleche {
+  align-items: center;
+  border: 1px solid var(--texte);
+  border-radius: 50%;
+  display: flex;
+  font-size: 1.6rem;
+  height: 54px;
+  justify-content: center;
+  transform: rotate(0deg);
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease;
+  width: 54px;
+}
+
+.selection-projet:hover .selection-fleche {
+  background: var(--texte);
+  color: var(--blanc);
+  transform: translate(5px, -5px) rotate(45deg);
+}
+
+/* Apparition des cartes au scroll */
+
+.selection-projet.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.selection-projet.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.selection-projet:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.selection-projet:nth-child(3) {
+  transition-delay: 0.24s;
+}
+
+/* Mouvement léger de l'image quand la carte est visible */
+
+.selection-projet.visible .selection-image img {
+  animation: mouvement-image 6s ease-in-out infinite alternate;
+}
+
+@keyframes mouvement-image {
+  from {
+    transform: translateY(-5%);
+  }
+
+  to {
+    transform: translateY(-8%);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .section-selection {
+    padding-bottom: 90px;
+    padding-top: 90px;
+  }
+
+  .selection-header {
+    display: block;
+    margin-bottom: 65px;
+  }
+
+  .selection-header h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+    margin-bottom: 30px;
+  }
+
+  .selection-description {
+    max-width: 100%;
+  }
+
+  .selection-projets {
+    gap: 75px;
+  }
+
+  .selection-image img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .selection-informations h2 {
+    font-size: 2rem;
+  }
+
+  .selection-fleche {
+    height: 44px;
+    width: 44px;
+  }
+
+  .selection-projet.visible .selection-image img {
+    animation: none;
+  }
+}
+
+
+
 /* Version mobile */
 
 @media (max-width: 700px) {
