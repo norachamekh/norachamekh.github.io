@@ -100,7 +100,7 @@ body {
 
 .hero {
   min-height: 80vh;
-  padding: 10vh var(--espace) 0;
+  padding: 10vh var(--espace) 30px;
 }
 
 .sur-titre {
