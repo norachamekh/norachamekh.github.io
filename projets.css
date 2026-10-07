@@ -433,7 +433,7 @@
 }
 
 /* Grille */
-
+/*
 .projets-grille {
   align-items: start;
   display: grid;
@@ -459,7 +459,7 @@
 
 .projet:nth-child(3) {
   margin-top: -20px;
-}
+}*/
 
 /* Images */
 
@@ -557,7 +557,7 @@
 .selection-header {
   display: grid;
   gap: 30px;
-  grid-template-columns: 1fr 1.4fr 0.7fr;
+  grid-template-columns: 1fr 1fr ;
   margin-bottom: 110px;
 }
 
