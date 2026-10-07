@@ -600,7 +600,7 @@ box-sizing: border-box;
 /* fleche */
 .selection-fleche {
     align-items: center;
-    border: 1px solid var(--texte);
+    border: 1px solid var(--bordure);
     border-radius: 50%;
     display: flex;
     font-size: 1.6rem;
