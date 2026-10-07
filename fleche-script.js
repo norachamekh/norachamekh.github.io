@@ -10,41 +10,85 @@ function initialiserFlechesProjets() {
     }
 
     let animationEnCours = false;
-    let sourisX = 50;
-    let sourisY = 50;
-
-    function centrerFleche() {
-      fleche.style.left = '50%';
-      fleche.style.top = '50%';
-    }
 
     image.addEventListener('pointermove', function (e) {
       const rect = image.getBoundingClientRect();
 
-      sourisX = e.clientX - rect.left;
-      sourisY = e.clientY - rect.top;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-      if (animationEnCours) {
-        return;
+      const pourcentageX = x / rect.width;
+      const pourcentageY = y / rect.height;
+
+      fleche.style.left = `${x}px`;
+      fleche.style.top = `${y}px`;
+
+      const distanceBordGauche = x;
+      const distanceBordDroit = rect.width - x;
+      const distanceBordHaut = y;
+      const distanceBordBas = rect.height - y;
+
+      const distanceMinimum = Math.min(
+        distanceBordGauche,
+        distanceBordDroit,
+        distanceBordHaut,
+        distanceBordBas
+      );
+
+      const seuil = 100;
+
+      if (
+        distanceMinimum < seuil &&
+        !animationEnCours
+      ) {
+        animationEnCours = true;
+
+        let directionX = 0;
+        let directionY = 0;
+
+        if (distanceBordGauche === distanceMinimum) {
+          directionX = '-18px';
+        } else if (distanceBordDroit === distanceMinimum) {
+          directionX = '18px';
+        } else if (distanceBordHaut === distanceMinimum) {
+          directionY = '-18px';
+        } else {
+          directionY = '18px';
+        }
+
+        fleche.style.setProperty(
+          '--direction-x',
+          directionX
+        );
+
+        fleche.style.setProperty(
+          '--direction-y',
+          directionY
+        );
+
+        fleche.classList.remove('pres-du-bord');
+
+        void fleche.offsetWidth;
+
+        fleche.classList.add('pres-du-bord');
+
+        setTimeout(function () {
+          animationEnCours = false;
+        }, 700);
       }
-
-      animationEnCours = true;
-
-      requestAnimationFrame(function () {
-        fleche.style.left = `${sourisX}px`;
-        fleche.style.top = `${sourisY}px`;
-
-        animationEnCours = false;
-      });
     });
 
     image.addEventListener('pointerleave', function () {
-      centrerFleche();
+      fleche.style.left = '50%';
+      fleche.style.top = '50%';
+      fleche.classList.remove('pres-du-bord');
     });
   });
 }
 
 document.addEventListener(
   'DOMContentLoaded',
-   initialiserFlechesProjets
+  function () {
+    initialiserFlechesProjets();
+  }
 );
