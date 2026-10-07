@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap');
 
+
+/*.projets {
+  display: grid;
+  gap: 35px;
+  grid-template-columns: repeat(3, 1fr);
+}*/
+
+/*Apparitions au scroll (texte et blocs)*/
+/*.reveal,
+.img-scroll {
+  opacity: 1 !important;
+  transform: none !important;
+}*/
+
+ /* .projets {
+    grid-template-columns: 1fr;
+  }
+.section-projets {
+    padding-bottom: 90px;
+    padding-top: 90px;
+  }*/
+
+
 /* En-tête général */
 .header {
   align-items: center;
@@ -294,5 +317,12 @@
   .projets {
     grid-template-columns: 1fr;
   }
+
+  
+  /*.section {
+    padding-bottom: 70px;
+    padding-top: 70px;
+  }*/
+
 
 }
