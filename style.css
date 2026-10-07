@@ -358,11 +358,12 @@ h2 {
 
 .contact {
   min-height: 55vh;
+  padding: 20px;
 }
 
 .center {
     text-align: center !important;
-      padding: var(--espace);
+     /* padding: var(--espace);*/
 }
 
 /* Pied de page */
@@ -387,7 +388,7 @@ box-sizing: border-box;
 }
 
 .social a {
-        color: #FCEDFA;
+        color: var(--bordure);
     line-height: 1;
     padding: 8px 0;
     margin: 2%;
@@ -445,8 +446,8 @@ box-sizing: border-box;
 .img-scroll {
   opacity: 1 !important;
   transform: none !important;
-}
-*/
+}*/
+
 /* État de départ des éléments à révéler */
 .reveal {
   opacity: 0;
@@ -487,7 +488,6 @@ box-sizing: border-box;
 }
 
 .video-wrapper {
-  
   --souris-x: 50%;
   --souris-y: 50%;
   position: relative;
@@ -590,13 +590,6 @@ box-sizing: border-box;
   pointer-events: none;
 }*/
 
-/* Préférence accessibilité : réduire les animations si nécessaire */
-@media (prefers-reduced-motion: reduce) {
-  .video,
-  .bouton-play {
-    transition: none;
-  }
-}
 
 /* +Assombrir légèrement au survol */
 .video-wrapper::after {
@@ -615,6 +608,14 @@ box-sizing: border-box;
 
 .video-wrapper:hover::after {
   opacity: 1;
+}
+
+/* Préférence accessibilité : réduire les animations si nécessaire */
+@media (prefers-reduced-motion: reduce) {
+  .video,
+  .bouton-play {
+    transition: none;
+  }
 }
 
 /* Version mobile */
@@ -657,6 +658,7 @@ box-sizing: border-box;
 
   .contact {
     min-height: 35vh;
+    padding: 20px;
 }
 
   /* Transformation du burger en croix */
@@ -770,7 +772,6 @@ box-sizing: border-box;
   color: var(--gris);
   font-size: 0.85rem;
 }
-
 
 .projet:hover .projet-fleche {
   transform: translate(4px, -4px);
