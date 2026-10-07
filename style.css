@@ -597,6 +597,20 @@ box-sizing: border-box;
   opacity: 1;
 }
 
+/* fleche */
+.selection-fleche {
+    align-items: center;
+    border: 1px solid var(--texte);
+    border-radius: 50%;
+    display: flex;
+    font-size: 1.6rem;
+    height: 54px;
+    justify-content: center;
+    transform: rotate(0deg);
+    transition: background 0.35s ease, color 0.35s ease, transform 0.35s ease;
+    width: 54px;
+}
+
 /* Préférence accessibilité : réduire les animations si nécessaire */
 @media (prefers-reduced-motion: reduce) {
   .video,
