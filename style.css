@@ -318,7 +318,10 @@ h2 {
 .projet-overlay-fleche {
   font-size: 1.8rem;
   margin-top: 25px;
+   -webkit-text-stroke-width: thin;
   transition: transform 0.3s ease;
+      margin-left: auto;
+      position: relative;
 }
 
 .projet-image:hover .projet-overlay-fleche {
