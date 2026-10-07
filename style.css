@@ -348,6 +348,7 @@ h2 {
 .apropos p:last-child {
   font-size: 1.25rem;
   max-width: 650px;
+  padding-left: 70px;
 }
 
 .contact {
@@ -604,13 +605,19 @@ box-sizing: border-box;
     border-radius: 50%;
         display: flex;
     position: absolute;
-    left: 85%;
+    /*left: 85%;*/
     font-size: 1.6rem;
     height: 54px;
     justify-content: center;
     transform: rotate(0deg);
     transition: background 0.35s ease, color 0.35s ease, transform 0.35s ease;
     width: 54px;
+}
+
+.selection-fleche:hover {
+  color: var(--bordure);
+    transform: rotate(50deg);
+    transition: background 0.35s ease, color 0.35s ease, transform 0.35s ease;
 }
 
 /* Préférence accessibilité : réduire les animations si nécessaire */
