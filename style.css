@@ -616,8 +616,9 @@ box-sizing: border-box;
 
 .selection-fleche:hover {
   color: var(--bordure);
-    transform: rotate(50deg);
+  /*  transform: rotate(50deg);*/
     transition: background 0.35s ease, color 0.35s ease, transform 0.35s ease;
+  transform: translate(5px, -5px) rotate(45deg);
 }
 
 /* Préférence accessibilité : réduire les animations si nécessaire */
