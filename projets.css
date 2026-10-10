@@ -1,5 +1,161 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap');
 
+/* Hero de la page projets */
+
+.projets-hero {
+  background: #000;
+  min-height: min(78vh, 850px);
+  overflow: hidden;
+  position: relative;
+}
+
+.projets-hero > img {
+  display: block;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  transform: scale(1.03);
+  transition: transform 1.2s ease;
+  width: 100%;
+}
+
+.projets-hero:hover > img {
+  transform: scale(1.07);
+}
+
+/* Voile sombre : utile pour garder le texte lisible */
+
+.projets-hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 3, 61, 0.08) 0%,
+    rgba(0, 3, 61, 0.42) 100%
+  );
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.projets-hero-contenu {
+  color: var(--blanc);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  min-height: min(78vh, 850px);
+  padding: 35px var(--espace) 65px;
+  position: relative;
+  z-index: 2;
+}
+
+.projets-hero-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.projets-hero h1 {
+  color: var(--blanc);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4.5rem, 13vw, 14rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 0.78;
+  margin: auto 0;
+}
+
+/* Sélecteur des catégories */
+
+.filtres-projets {
+  align-items: center;
+  background: var(--fond);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px var(--espace);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.filtre-projet {
+  background: transparent;
+  border: 1px solid var(--texte);
+  border-radius: 999px;
+  color: var(--texte);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 11px 18px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.filtre-projet:hover {
+  transform: translateY(-2px);
+}
+
+.filtre-projet.actif {
+  background: var(--texte);
+  color: var(--blanc);
+}
+
+/* Projet masqué par les filtres */
+
+.work-project.est-cache {
+  display: none;
+}
+
+/* Ajustement de la grille */
+
+.work-list {
+  padding-top: 90px;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .projets-hero,
+  .projets-hero-contenu {
+    min-height: 65vh;
+  }
+
+  .projets-hero-contenu {
+    padding-bottom: 40px;
+    padding-top: 25px;
+  }
+
+  .projets-hero h1 {
+    font-size: clamp(4rem, 18vw, 7rem);
+    line-height: 0.82;
+  }
+
+  .filtres-projets {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .filtre-projet {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+}
+
+/*
+
+++++
+
+
+*/
 /* Section manifeste */
 
 .manifesto {
