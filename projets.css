@@ -71,19 +71,19 @@
 
 .filtres-projets {
   align-items: center;
-  background: var(--fond);
+  background: var(--bordure);
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
   padding: 20px var(--espace);
   position: sticky;
-  top: 0;
+  top: 50px;
   z-index: 20;
 }
 
 .filtre-projet {
-  background: transparent;
+  background: var(--fond);
   border: 1px solid var(--texte);
   border-radius: 999px;
   color: var(--texte);
