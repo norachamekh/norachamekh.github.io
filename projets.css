@@ -70,13 +70,16 @@
 /* Sélecteur des catégories */
 
 .filtres-projets {
+      border-radius: 999px;
+    width: fit-content;
+      justify-self: center;
   align-items: center;
   background: var(--bordure);
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  padding: 20px var(--espace);
+  padding: 10px;
   position: sticky;
   top: 50px;
   z-index: 20;
