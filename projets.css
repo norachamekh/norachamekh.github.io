@@ -1,6 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap');
 
+/* test */
+.Work:not(.Work--hidden) .WorksHeading h1 span[data-v-0ad730a0] {
+    transform: translate3d(0, calc(var(--y, 0) * -1), 0);
+    transition: transform .8s cubic-bezier(.165, .84, .44, 1);
+}
 
+.Work:not(.Work--hidden) .WorksHeading h1 span[data-v-0ad730a0] {
+    transform: translate3d(0, calc(var(--y, 0) * -1), 0);
+    transition: transform .8s cubic-bezier(.165, .84, .44, 1);
+}
+
+.WorksHeading h1 span[data-v-0ad730a0] {
+    display: inline-block;
+}
+
+.WorksHeading h1 span[data-v-0ad730a0] {
+    display: inline-block;
+}
 
 @keyframes fleche-vers-le-bord {
   0% {
