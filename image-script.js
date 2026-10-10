@@ -25,3 +25,8 @@ function initialiserImageManifesto() {
     }
   });
 }
+
+document.addEventListener(
+  'DOMContentLoaded',
+  initialiserImageManifesto
+);
