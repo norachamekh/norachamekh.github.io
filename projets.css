@@ -153,138 +153,7 @@
   }
 }
 
-/*
-
-++++
-
-
-*/
-/* Section manifeste */
-
-.manifesto {
-  background: var(--texte);
-  color: var(--blanc);
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-
-.manifesto-image {
-  height: 100%;
-  inset: 0;
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-}
-
-.manifesto-image::after {
-  background: linear-gradient(
-    180deg,
-    rgba(0, 3, 61, 0.25) 0%,
-    rgba(0, 3, 61, 0.78) 100%
-  );
-  content: '';
-  inset: 0;
-  position: absolute;
-  z-index: 1;
-}
-
-.manifesto-image img {
-  display: block;
-  height: 112%;
-  object-fit: cover;
-  transform: translateY(-6%);
-  transition: transform 1.2s ease;
-  width: 100%;
-}
-
-/* Zoom discret au survol */
-
-.manifesto:hover .manifesto-image img {
-  transform: translateY(-6%) scale(1.04);
-}
-
-.manifesto-contenu {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-  padding: 35px var(--espace) 55px;
-  position: relative;
-  z-index: 2;
-}
-
-.manifesto-label {
-  color: var(--blanc);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-/* Grand titre */
-
-.manifesto-titre {
-  align-self: flex-start;
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(4.5rem, 14vw, 15rem);
-  font-weight: 500;
-  letter-spacing: -0.06em;
-  line-height: 0.76;
-  margin: auto 0;
-}
-
-.manifesto-ligne {
-  display: block;
-  overflow: hidden;
-}
-
-.manifesto-ligne span {
-  display: block;
-  transform: translateY(115%);
-  transition: transform 1s cubic-bezier(0.2, 0.65, 0.3, 1);
-}
-
-/* Animation quand la section entre dans l'écran */
-
-.manifesto.visible .manifesto-ligne span {
-  transform: translateY(0);
-}
-
-.manifesto-ligne:nth-child(2) span {
-  transition-delay: 0.14s;
-}
-
-.manifesto-texte {
-  align-self: flex-end;
-  color: var(--blanc);
-  font-size: clamp(1rem, 1.8vw, 1.4rem);
-  max-width: 420px;
-}
-
-/* Version mobile */
-
-@media (max-width: 700px) {
-  .manifesto,
-  .manifesto-contenu {
-    min-height: 80vh;
-  }
-
-  .manifesto-contenu {
-    padding-bottom: 35px;
-    padding-top: 25px;
-  }
-
-  .manifesto-titre {
-    font-size: clamp(4.2rem, 18vw, 7rem);
-    line-height: 0.8;
-  }
-
-  .manifesto-texte {
-    align-self: flex-start;
-    max-width: 280px;
-  }
-}
+/*    ---------   */
 
 @keyframes fleche-vers-le-bord {
   0% {
@@ -313,7 +182,6 @@
     width: 52px;
   }
 }
-
 
 
 /*    ---------   */
