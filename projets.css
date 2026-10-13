@@ -64,7 +64,7 @@
   font-weight: 500;
   letter-spacing: -0.06em;
   line-height: 0.78;
-  margin: auto 0;
+ /* margin: auto 0;*/
 }
 
 /* Sélecteur des catégories */
@@ -80,8 +80,8 @@
   gap: 10px;
   justify-content: center;
   padding: 10px;
-  position: sticky;
-  top: 50px;
+  position: fixed;
+  top: 3.5rem;
   z-index: 20;
 }
 
@@ -143,7 +143,10 @@
   .filtres-projets {
     justify-content: flex-start;
     overflow-x: auto;
-    flex-wrap: nowrap;
+    /*flex-wrap: nowrap;*/
+            margin: 0 20px;
+        border-radius: 20px;
+     top: 4.4rem;
   }
 
   .filtre-projet {
@@ -1016,7 +1019,6 @@
     grid-template-columns: 1fr;
   }
 
-  
   /*.section {
     padding-bottom: 70px;
     padding-top: 70px;
