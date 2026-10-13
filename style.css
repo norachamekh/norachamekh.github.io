@@ -129,11 +129,11 @@ h2 {
   font-size: clamp(2.5rem, 5vw, 5rem);
   margin-bottom: 45px;
 }
-
+/*
 h3 {
   font-size: clamp(2rem, 3vw, 3rem);
   margin-bottom: 25px;
-}
+}*/
 
 .introduction {
   color: var(--gris);
@@ -378,7 +378,7 @@ h3 {
 
 .apropos p:last-child {
   font-size: 1.25rem;
-  max-width: 650px;
+  /*max-width: 650px;*/
   padding-left: 70px;
 }
 
