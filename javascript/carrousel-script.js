@@ -21,15 +21,36 @@ function initialiserCarrousels() {
         return;
       }
 
-      const espace = parseFloat(getComputedStyle(piste).columnGap) || 0;
-      const distance = slide.getBoundingClientRect().width + espace;
+      const espace =
+        parseFloat(getComputedStyle(piste).columnGap) || 0;
+
+      const distance =
+        slide.getBoundingClientRect().width + espace;
+
+      const positionMax = piste.scrollWidth - piste.clientWidth;
+
+      let destination;
+
+      if (direction === 1 && piste.scrollLeft >= positionMax - 5) {
+        // Dernière image : retour à la première
+        destination = 0;
+      } else if (direction === -1 && piste.scrollLeft <= 5) {
+        // Première image : aller à la dernière
+        destination = positionMax;
+      } else {
+        // Passer à l’image suivante ou précédente
+        destination = Math.max(
+          0,
+          Math.min(positionMax, piste.scrollLeft + direction * distance)
+        );
+      }
 
       const mouvementReduit = window.matchMedia(
         '(prefers-reduced-motion: reduce)'
       ).matches;
 
-      piste.scrollBy({
-        left: direction * distance,
+      piste.scrollTo({
+        left: destination,
         behavior: mouvementReduit ? 'instant' : 'smooth'
       });
     }
@@ -44,8 +65,12 @@ function initialiserCarrousels() {
   });
 }
 
+
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initialiserCarrousels);
+  document.addEventListener(
+    'DOMContentLoaded',
+    initialiserCarrousels
+  );
 } else {
   initialiserCarrousels();
 }
