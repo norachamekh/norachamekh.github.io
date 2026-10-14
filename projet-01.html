@@ -189,29 +189,111 @@
 
     </section>
 
+<!-- Section Carrousel -->
     
-             <img
-                src="./images/hibiscus/post-1.png"
-                alt="Détail de l'identité visuelle du projet 01">
-             <img
-                src="./images/hibiscus/post-2.png"
-                alt="Détail de l'identité visuelle du projet 01">
-             <img
-                src="./images/hibiscus/post-3.png"
-                alt="Détail de l'identité visuelle du projet 01">
+               <section class="galerie-carrousel" aria-label="Galerie du projet">
+                
+                  <div class="carrousel-entete">
+                    <h2>Le projet en images</h2>
+                
+                    <div class="carrousel-commandes">
+                      <button
+                        class="carrousel-precedent"
+                        type="button"
+                        aria-label="Image précédente"
+                        aria-controls="carrousel-images">
+                        ←
+                      </button>
+                
+                      <button
+                        class="carrousel-suivant"
+                        type="button"
+                        aria-label="Image suivante"
+                        aria-controls="carrousel-images">
+                        →
+                      </button>
+                    </div>
+                  </div>
+                
+                  <div
+                    class="carrousel-piste"
+                    id="carrousel-images"
+                    tabindex="0"
+                    role="region"
+                    aria-label="Images du projet, défilement horizontal">
+                
+                    <figure class="carrousel-slide">
+                      <img
+                        src="./images/hibiscus/post-1.png"
+                        alt="Vue principale de l’identité visuelle">
+                
+                      <figcaption>Vue d’ensemble du projet</figcaption>
+                    </figure>
+                
+                    <figure class="carrousel-slide">
+                      <img
+                        src="./images/hibiscus/post-2.png"
+                        alt="Déclinaison graphique de l’identité visuelle"
+                        loading="lazy">
+                
+                      <figcaption>Déclinaison graphique</figcaption>
+                    </figure>
+                
+                    <figure class="carrousel-slide">
+                      <img
+                        src="./images/hibiscus/post-3.png"
+                        alt="Application de l’identité sur un support imprimé"
+                        loading="lazy">
+                
+                      <figcaption>Application sur un support imprimé</figcaption>
+                    </figure>
+                
+                  </div>
+                
+                </section>
+            
 
     <video src="./video/hibiscus/bouteille-fixe-rouge.mp4">
       
     </video>
-    <video src="./video/hibiscus/bouteille-fixe-blanc.mkv">
-      
-    </video>
+ 
 
+      <!-- Section vidéo avec bouton play -->
+
+      <section class="section section-video">
+        <p class="sur-titre reveal">Showreel</p>
+
+          <h2 class="reveal">Mon univers créatif</h2>
+           <!--    <div class="video-container reveal"> -->
+              <div class="video-wrapper reveal" id="video-wrapper">  
+                   <!--     poster="./images/papillon.png" --> 
+                <video
+                      id="video-showreel"
+                      class="video"
+                      controls
+                      preload="metadata"
+                  
+                      playsinline>
+                      <source src="./video/hibiscus/bouteille-fixe-blanc.mkv" type="video/mp4">
+                      Votre navigateur ne prend pas en charge la vidéo.
+                    </video>
+                           <button
+                            id="bouton-play"
+                            class="bouton-play"
+                            type="button"
+                            aria-label="Lancer la vidéo">
+                            <span class="icone-play"></span> 
+                          </button>
+                  </div>  
+         <p class="legende">   V1 présentation du produit  </p>
+    </section>
+    
     
     <!-- Galerie du projet -->
 
     <section class="projet-galerie">
            <figure class="projet-visuel projet-visuel-large">
+             
                     <button
                         class="ouvrir-image"
                         type="button"
@@ -226,10 +308,19 @@
             </figure>
 
       <figure class="projet-visuel  projet-visuel-petit">
+        <dialog id="image-agrandie" aria-label="Aperçu de l’image">
+
+                  <button
+                    class="fermer-image"
+                    type="button"
+                    aria-label="Fermer l’image"
+                    autofocus>
+                    ×
+                  </button>
               <img
                 src="./images/hibiscus/logo-hibiscus.png"
                 alt="Détail de l'identité visuelle du projet 01">
-      
+        </dialog>
               <figcaption>
                 Logo final
               </figcaption>
