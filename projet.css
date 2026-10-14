@@ -169,10 +169,10 @@
   .projet-hero h1 {
     font-size: clamp(3.8rem, 18vw, 6rem);
   }
-
+/*
   .projet-introduction {
     margin-left: 0;
-  }
+  }*/
 
   .projet-informations-page {
     display: block;
@@ -207,5 +207,6 @@
 
   .navigation-projet-suivant {
     text-align: left;
+            width: 100%;
   }
 }
