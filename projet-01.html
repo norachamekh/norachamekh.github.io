@@ -211,11 +211,15 @@
     <!-- Galerie du projet -->
 
     <section class="projet-galerie">
-   <figure class="projet-visuel projet-visuel-large">
-              <img
-                src="./images/hibiscus/affiche-hibiscus.png"
-                alt="Détail de l'identité visuelle du projet 01">
-      
+           <figure class="projet-visuel projet-visuel-large">
+                    <button
+                        class="ouvrir-image"
+                        type="button"
+                        aria-label="Agrandir l’image du projet">
+                              <img
+                                src="./images/hibiscus/affiche-hibiscus.png"
+                                alt="Détail de l'identité visuelle du projet 01">
+                    </button>
               <figcaption>
                 Présentation du produits
               </figcaption>
@@ -373,5 +377,16 @@
   <script src="./video-script.js"></script>
   <script src="./visible-script.js"></script>
 
+  <dialog id="image-agrandie" aria-label="Aperçu de l’image">
+      <button
+        class="fermer-image"
+        type="button"
+        aria-label="Fermer l’image"
+        autofocus>
+        ×
+      </button>
+      <img id="image-grand-format" alt="">
+  </dialog>
+  
 </body>
 </html>
