@@ -94,7 +94,7 @@
 }
 
 .projet-visuel-large {
-  grid-column: span 2;
+  grid-column: span 3;
 }
 
 .projet-visuel img {
@@ -375,6 +375,10 @@
   .projet-galerie {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  .projet-visuel-large {
+  grid-column: span 2;
+}
 }
 
 /* Version mobile */
