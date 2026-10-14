@@ -317,6 +317,57 @@
   font-size: 0.85rem;
   margin-top: 12px;
 }
+/* Conteneur de l'image et des flèches */
+
+.carrousel-cadre {
+  position: relative;
+}
+
+/* Boutons superposés à l'image */
+
+.carrousel-cadre > button {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  border: 0;
+  border-radius: 50%;
+  color: var(--texte, #00033d);
+  cursor: pointer;
+  display: flex;
+  font-size: 26px;
+  height: 48px;
+  justify-content: center;
+  padding: 0;
+  position: absolute;
+
+  /* Centre vertical d'une image au format 16/9 */
+  top: 0;
+  margin-top: 28.125%;
+
+  transform: translateY(-50%);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+  width: 48px;
+  z-index: 2;
+}
+
+.carrousel-precedent {
+  left: 16px;
+}
+
+.carrousel-suivant {
+  right: 16px;
+}
+
+.carrousel-cadre > button:hover {
+  background: var(--texte, #00033d);
+  color: #fff;
+}
+
+.carrousel-cadre > button:focus-visible {
+  outline: 3px solid var(--accent, #836ce6);
+  outline-offset: 4px;
+}
 
 
 /* Version mobile */
@@ -388,5 +439,21 @@
 
   .carrousel-slide img {
     aspect-ratio: 4 / 3;
+  }
+  
+  /* Mobile : images au format 4/3 */
+  .carrousel-cadre > button {
+    font-size: 22px;
+    height: 40px;
+    margin-top: 37.5%;
+    width: 40px;
+  }
+
+  .carrousel-precedent {
+    left: 10px;
+  }
+
+  .carrousel-suivant {
+    right: 10px;
   }
 }
