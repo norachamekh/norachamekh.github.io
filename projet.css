@@ -305,7 +305,7 @@
 
 .carrousel-slide img {
   aspect-ratio: 16 / 9;
-  background: #e6e6e6;
+  background: var(--bordure);
   display: block;
   height: auto;
   object-fit: contain;
