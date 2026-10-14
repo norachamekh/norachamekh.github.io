@@ -85,7 +85,7 @@
   align-items: start;
   display: grid;
   gap: 70px 32px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   padding: 0 var(--espace) 150px;
 }
 
@@ -369,6 +369,13 @@
   outline-offset: 4px;
 }
 
+/* Version tablette */
+
+@media (max-width: 900px) {
+  .projet-galerie {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 /* Version mobile */
 
