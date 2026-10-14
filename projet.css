@@ -226,6 +226,99 @@
   width: 42px;
 }
 
+/* Section carrousel */
+
+.galerie-carrousel {
+  min-width: 0;
+  padding: 80px var(--espace, 7vw);
+}
+
+.carrousel-entete {
+  align-items: center;
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.carrousel-entete h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+  margin: 0;
+}
+
+/* Boutons */
+
+.carrousel-commandes {
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.carrousel-commandes button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--texte, #00033d);
+  border-radius: 50%;
+  color: var(--texte, #00033d);
+  cursor: pointer;
+  display: flex;
+  font-size: 24px;
+  height: 48px;
+  justify-content: center;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+  width: 48px;
+}
+
+.carrousel-commandes button:hover {
+  background: var(--texte, #00033d);
+  color: #fff;
+}
+
+.carrousel-commandes button:focus-visible,
+.carrousel-piste:focus-visible {
+  outline: 3px solid var(--accent, #836ce6);
+  outline-offset: 5px;
+}
+
+/* Zone défilante */
+
+.carrousel-piste {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: 15px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+/* Chaque image occupe toute la largeur */
+
+.carrousel-slide {
+  flex: 0 0 100%;
+  margin: 0;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.carrousel-slide img {
+  aspect-ratio: 16 / 9;
+  background: #e6e6e6;
+  display: block;
+  height: auto;
+  object-fit: contain;
+  width: 100%;
+}
+
+.carrousel-slide figcaption {
+  color: var(--gris, #666);
+  font-size: 0.85rem;
+  margin-top: 12px;
+}
+
+
 /* Version mobile */
 
 @media (max-width: 700px) {
@@ -276,5 +369,24 @@
   .navigation-projet-suivant {
     text-align: left;
             width: 100%;
+  }
+
+  /* Section carrousel */
+    .galerie-carrousel {
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+
+  .carrousel-entete {
+    align-items: flex-start;
+  }
+
+  .carrousel-commandes button {
+    height: 40px;
+    width: 40px;
+  }
+
+  .carrousel-slide img {
+    aspect-ratio: 4 / 3;
   }
 }
