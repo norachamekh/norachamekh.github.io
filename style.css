@@ -42,6 +42,7 @@ body {
   z-index: 1030;
 }
 
+
 .logo {
   color: var(--texte);
   font-size: 0.85rem;
@@ -203,7 +204,10 @@ h3 {
 
 .section {
   padding: 0 var(--espace);
- /* padding-left: 11vw; */
+ /* padding-left: 11vw; 
+  padding: 100px var(--espace);
+  padding: 30px;
+  padding-top: inherit;*/
 }
 
 /* Section projets */
