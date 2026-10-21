@@ -45,10 +45,10 @@
   max-width: 720px;
 }
 
-.projet-description h2 {
+/*.projet-description h2 {
   font-size: clamp(2.5rem, 5vw, 5rem);
   margin-bottom: 35px;
-}
+}*/
 
 .projet-description p:not(.sur-titre) {
   color: var(--gris);
@@ -242,7 +242,8 @@
 }
 
 .carrousel-entete h2 {
-  font-size: clamp(2rem, 4vw, 4rem);
+  /*font-size: clamp(2rem, 4vw, 4rem);*/
+  font-size: 40px;
   margin: 0;
 }
 
