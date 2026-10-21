@@ -58,22 +58,16 @@ body {
   text-decoration: none;
 }
 
-.logo-reseau:hover {
-  transition: background 0.3s ease, transform 0.3s ease;
+
+
+.effet-flottant {
+  display: inline-block;
+  transform: translateY(0);
+  transition: transform 0.35s ease-out;
 }
 
-.bx {
-    font-family: boxicons !important;
-    font-weight: 400;
-    font-style: normal;
-    font-variant: normal;
-    line-height: 1;
-    text-rendering: auto;
-    display: inline-block;
-    text-transform: none;
-    speak: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.effet-flottant:hover {
+  transform: translateY(-6px);
 }
   
 /* Navigation sur ordinateur */
@@ -449,6 +443,24 @@ box-sizing: border-box;
      font-size: 18px;
   /*  display: inline-block;*/
     background: var(--bordure);
+}
+
+.logo-reseau:hover {
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.bx {
+    font-family: boxicons !important;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    display: inline-block;
+    text-transform: none;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Boutton qui remonte en haut de page */
