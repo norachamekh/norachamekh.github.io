@@ -53,6 +53,15 @@ body {
   color: var(--accent);
 }
 
+.logo-reseau {
+  width: 100px;
+  text-decoration: none;
+}
+
+.logo-reseau:hover {
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+  
 /* Navigation sur ordinateur */
 
 .navigation {
