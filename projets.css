@@ -58,7 +58,7 @@
 }
 
 .projets-hero h1 {
-  color: var(--blanc);
+  color: var(--fond);
   font-family: 'Playfair Display', serif;
   font-size: clamp(4.5rem, 13vw, 14rem);
   font-weight: 500;
@@ -629,6 +629,7 @@
 
 .projets-page-introduction h1 {
   font-size: clamp(3.5rem, 9vw, 9rem);
+  font-size: xxx-large;
   margin-bottom: 35px;
 }
 
