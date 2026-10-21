@@ -214,6 +214,7 @@ h3 {
 
 .section-projets {
       padding: var(--espace);
+  padding-top: 0;
  /* padding-bottom: 140px;
   padding-top: 140px;*/
 }
