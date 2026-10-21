@@ -5,7 +5,8 @@ video {
 /* Page détail projet */
 
 .projet-hero {
-  padding: 130px var(--espace) 100px;
+  /*padding: 130px var(--espace) 100px;*/
+   padding: 0 var(--espace);
 }
 
 .projet-hero h1 {
