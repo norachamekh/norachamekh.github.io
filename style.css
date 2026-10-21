@@ -53,13 +53,6 @@ body {
   color: var(--accent);
 }
 
-.logo-reseau {
-  width: 100px;
-  text-decoration: none;
-}
-
-
-
 .effet-flottant {
   display: inline-block;
   transform: translateY(0);
@@ -433,7 +426,7 @@ box-sizing: border-box;
 .social a {
         color: var(--texte);
     line-height: 1;
-    padding: 8px 0;
+   /*   padding: 8px 0; */
     margin: 2%;
     border-radius: 50%;
     text-align: center;
@@ -443,6 +436,11 @@ box-sizing: border-box;
      font-size: 18px;
   /*  display: inline-block;*/
     background: var(--bordure);
+}
+
+.logo-reseau {
+  width: 70px;
+  text-decoration: none;
 }
 
 .logo-reseau:hover {
