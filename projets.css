@@ -499,11 +499,7 @@
 }
 
 
-/*.projets {
-  display: grid;
-  gap: 35px;
-  grid-template-columns: repeat(3, 1fr);
-}*/
+
 
 /*Apparitions au scroll (texte et blocs)*/
 /*.reveal,
@@ -512,25 +508,14 @@
   transform: none !important;
 }*/
 
- /* .projets {
-    grid-template-columns: 1fr;
-  }
+ /* 
 .section-projets {
     padding-bottom: 90px;
     padding-top: 90px;
   }*/
 
 
-/* En-tête général */
-/* .header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  padding: 17px var(--espace);
-  position: relative;
-      position: fixed;
-      z-index: 1030;
-}*/
+
 
 /* 3 cartes */
 /*.carte {
@@ -560,26 +545,6 @@
 .carte:hover {
   background: var(--accent);
   transform: translateY(-3px);
-}
-
-.bx {
-    font-family: boxicons !important;
-    font-weight: 400;
-    font-style: normal;
-    font-variant: normal;
-    line-height: 1;
-    text-rendering: auto;
-    display: inline-block;
-    text-transform: none;
-    speak: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.section {
-  padding: 100px var(--espace);
-  padding: 30px;
-  padding-top: inherit;
 }*/
 
 .projets {
