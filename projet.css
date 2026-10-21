@@ -5,9 +5,9 @@
 }
 
 .projet-hero h1 {
-  font-size: clamp(4rem, 12vw, 12rem);
+ /* font-size: clamp(4rem, 12vw, 12rem);
   letter-spacing: -0.05em;
-  line-height: 0.85;
+  line-height: 0.85;*/
   margin-bottom: 45px;
 }
 
