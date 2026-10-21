@@ -543,9 +543,14 @@ box-sizing: border-box;
 }
 
 .video-ratio {
+    --souris-x: 50%;
+  --souris-y: 50%;
+  position: relative;
+  background: var(--texte);
+  overflow: hidden;
+  cursor: pointer;
     aspect-ratio: 9 / 16;
     width: 50%;
-    justify-self: center;
 }
 
 .video-container {
