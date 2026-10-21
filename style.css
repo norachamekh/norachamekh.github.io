@@ -393,7 +393,7 @@ h3 {
 }
 
 .contact {
-  min-height: 55vh;
+ /* min-height: 55vh;*/
   padding: 20px;
 }
 
