@@ -660,6 +660,7 @@ box-sizing: border-box;
   color: var(--gris);
   font-size: 0.9rem;
   margin-top: 18px;
+  padding-bottom: 20px;
 }
 
 /* Cacher le bouton quand la vidéo est en lecture 
