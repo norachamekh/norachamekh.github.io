@@ -18,7 +18,7 @@
   >
   <link rel="stylesheet" href="style.css">
  <link rel="stylesheet" href="projets.css">
-   <link rel="stylesheet" href="projet.css"><!--   -->
+   <link rel="stylesheet" href="projet.css">
 </head>
 
 <body>
@@ -61,7 +61,7 @@
     
     <!-- Introduction du projet -->
 
-    <section class="projet-hero">
+  <!--    <section class="projet-hero">
 
       <p class="sur-titre">
         Identité visuelle — 2025
@@ -77,7 +77,7 @@
         singulier, cohérent et reconnaissable.
       </p>
 
-    </section>
+    </section> -->
 
     <!-- Informations -->
 
@@ -120,10 +120,10 @@
 
          <div>
           <span>Mission</span>
-          <p>Concevoir l'univers graphique de la boisson Bissap pour une finalité de vente.</p>
+        <!--   <p>Concevoir l'univers graphique de la boisson Bissap pour une finalité de vente.</p>-->
         </div>
       
-        <!--  -->
+         
 
         <div>
           <span>Année</span>
@@ -134,10 +134,9 @@
           <span>Services</span>
           <p>
             Direction artistique<br>
-            Gestion de projet<br>
-            Identité visuelle<br>
             Création de contenu<br>
-            Animation 3D
+            Animation 3D<br>
+            Vidéo<br>
           </p>
         </div>
 
@@ -149,6 +148,7 @@
             Storyboarder<br>
             Adobe After Efects<br>
             Blender<br>
+            Montage Vidéo<br>
           </p>
         </div>
 
@@ -157,7 +157,7 @@
     </section>
 
 <!-- Section Carrousel -->
-    
+    <!--
                <section class="galerie-carrousel" aria-label="Galerie du projet">
                 
                   <div class="carrousel-entete">
@@ -218,16 +218,16 @@
                  
                   </div>
                 </section>
-
+ -->
 
       <!-- Section vidéo avec bouton play -->
 
       <section class="section centrer section-video">
 
-          <h2 class="reveal">Vidéos promotionnelle</h2>
+          <h2 class="reveal">Vidéos réalisées</h2>
            <!--    <div class="video-container reveal"> -->
-              <div class=" video-ratio centrer" id="video-wrapper">  
-                   <!--   video-wrapper --> 
+              <div class="video-wrapper centrer" id="video-wrapper">  
+                   <!--   video-wrapper video-ratio --> 
                 <video
                       id="video-showreel"
                       class="video"
@@ -235,7 +235,29 @@
                       preload="metadata"
                     poster="./images/hibiscus/post-bouteille.png"
                       playsinline>
-                      <source src="./videos/hibiscus/bouteille-fixe-blanc.mp4" type="video/mp4">
+                      <source src="./videos/carte.mp4" type="video/mp4">
+                      Votre navigateur ne prend pas en charge la vidéo.
+                    </video>
+                           <button
+                            id="bouton-play"
+                            class="bouton-play"
+                            type="button"
+                            aria-label="Lancer la vidéo">
+                            <span class="icone-play"></span> 
+                          </button>
+                  </div>  
+           <p class="legende centrer">   V1 présentation du produit  <br>  </p>
+
+        <div class="video-wrapper centrer" id="video-wrapper">  
+                   <!--   video-wrapper video-ratio --> 
+                <video
+                      id="video-showreel"
+                      class="video"
+                      controls
+                      preload="metadata"
+                    poster="./images/hibiscus/post-bouteille.png"
+                      playsinline>
+                      <source src="./videos/geste-sportif.mp4" type="video/mp4">
                       Votre navigateur ne prend pas en charge la vidéo.
                     </video>
                            <button
@@ -248,7 +270,7 @@
                   </div>  
            <p class="legende centrer">   V1 présentation du produit  <br>  </p>
         
-                  <div class="video-ratio centrer" id="video-wrapper"> 
+                  <div class="video-wrapper centrer" id="video-wrapper"> 
                    
                     <video
                           id="video-showreel"
@@ -258,7 +280,7 @@
                       poster="./images/hibiscus/post-bouteille.png"
                           playsinline>
                       
-                          <source src="./videos/hibiscus/bouteille-fixe-blanc.mp4" type="video/mp4">
+                          <source src="./videos/oppose.mp4" type="video/mp4">
                           Votre navigateur ne prend pas en charge la vidéo.
                         </video>
                                <button
@@ -270,11 +292,13 @@
                               </button>
                       </div>  
          <p class="legende centrer">   Teaseur de la présentation du produit  </p>
+
+        
     </section>
     
     
     <!-- Galerie du projet -->
-
+ <!--
     <section class="projet-galerie">
            <figure class="projet-visuel projet-visuel-large">
              
@@ -448,7 +472,7 @@
       
   
     </section>
-
+-->
     <!-- Navigation entre projets -->
 
     <nav class="navigation-projets" aria-label="Navigation entre les projets">
