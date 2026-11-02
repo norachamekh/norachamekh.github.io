@@ -415,6 +415,7 @@ h3 {
 .centrer {
     text-align: center !important;
      /* padding: var(--espace);*/
+      place-items: center;
 }
 
 /* Pied de page */
