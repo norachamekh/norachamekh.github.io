@@ -384,6 +384,12 @@ h3 {
   transition-delay: 0.3s;
 }
 
+.affiche {
+    justify-self: center;
+    width: 800px;
+    height: 415px;
+  }
+
 .apropos {
   background: var(--texte);
   color: var(--blanc);
