@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap');
 
 :root {
-  --fond: #e5fffd;
+  --fond: #effffe;
   --texte: #00033d;
   --accent: #836ce6;
-  --gris: #77736d;
+  --gris: #4e23a5;
   --blanc: #ffccf2;
   --bordure: #d9c4ff;
   --espace: 5vw;
